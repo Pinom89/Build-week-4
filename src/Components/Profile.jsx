@@ -1,9 +1,9 @@
 // Import style css personalizzato
 import '../style/Profile.css';
 
-import React, { useEffect, useState } from 'react';
-import { Alert, Card, Col, Container, Row, Spinner, Button } from 'react-bootstrap';
 
+import React, { useEffect, useState } from 'react';
+import { Alert, Col, Container, Row, Spinner, Button, ProgressBar } from 'react-bootstrap';
 
 function Profile() {
 
@@ -12,7 +12,6 @@ function Profile() {
 
   // Recupero il token di autorizzazione
   const apiKey = process.env.TOKEN;
-  console.log(apiKey);
   
   // Definizione degli stati locali
   const [profile, setProfile] = useState([]);
@@ -101,6 +100,92 @@ function Profile() {
                   Università degli Studi della Calabria
                 </li>
               </ul>
+            </Col>
+          </Row>
+        </Container>
+      </div>
+
+      {/* Consigliato per te */}
+      <div className='border-0 content__consigliato'>
+        <Container className='pb-4 content__profile'>
+          <Row className='user__detail'>
+            <Col>
+              <h5 className='name mb-0'>Consigliato per te</h5>
+              <p className='my-0 occupation'>Solo per te</p>
+              <p>Intermedio</p>
+              <ProgressBar variant='secondary' now={60} className='bg-light progress__bar' />
+              <p className='my-0 location text-muted'>Completa 1 passaggio per raggiungere il livello <span className='connections'>Massimo</span></p>
+              <div className='content__riepilogo'>
+                <h5>Scrivi un riepilogo per mettere in evidenza la tua personalità o la tua esperienza lavorativa</h5>
+                <p>Gli utenti che includono un riepilogo ricevono fino a 3,9 volte più visualizzazioni del profilo.</p>
+                <Button variant='outline-secondary' className='profile__button'>
+                  Aggiungi un riepilogo
+                </Button>
+              </div>
+            </Col>
+          </Row>
+        </Container>
+      </div>
+
+      {/* Analisi */}
+      <div className='border-0 content__analisi'>
+        <Container className='pb-4 content__profile'>
+          <Row className='user__detail'>
+            <Col>
+              <h5 className='name mb-0'>Analisi</h5>
+              <p className='my-0 occupation'>Solo per te</p>
+              <Container>
+                <Row>
+                  <Col>
+                    <p>0 visualizzazioni del profilo</p>
+                    <p>Aggiorna il tuo profilo per attrarre visitatori.</p>
+                  </Col>
+                  <Col>
+                    <p>0 impressioni del post</p>
+                    <p>Crea un post per aumentare l'interesse.</p>
+                    <p className='text-muted'>Ultimi 7 giorni</p>
+                  </Col>
+                </Row>
+              </Container>
+              <div className='link__analisi'>
+                <p className='text-center'>Mostra tutte le analisi</p>
+              </div>
+            </Col>
+          </Row>
+        </Container>
+      </div>
+
+      {/* Risorse */}
+      <div className='border-0 content__risorse'>
+        <Container className='pb-4 content__profile'>
+          <Row className='user__detail'>
+            <Col>
+              <h5 className='name mb-0'>Risorse</h5>
+              <p className='my-0 connections'>solo per te</p>
+                <h5>La mia rete</h5>
+                <p>Salva e gestisci i tuoi collegamenti e interessi.</p>
+                <h5>Elementi salvati</h5>
+                <p>Monitora le tue offerte di lavoro, i corsi e gli articoli.</p>
+              <div className='link__analisi'>
+                <p className='text-center'>Mostra tutte le risorse</p>
+              </div>
+            </Col>
+          </Row>
+        </Container>
+      </div>
+
+      {/* Attività */}
+      <div className='border-0 content__attività'>
+        <Container className='pb-4 content__profile'>
+          <Row className='user__detail'>
+            <Col>
+              <h5 className='name mb-0'>Attività</h5>
+              <p className='my-0 connections'>5 followers</p>
+                <h5>Non hai ancora pubblicato nulla</h5>
+                <p>I post che condividi appariranno qui</p>
+              <div className='link__analisi'>
+                <p className='text-center'>Mostra tutte le attività</p>
+              </div>
             </Col>
           </Row>
         </Container>
