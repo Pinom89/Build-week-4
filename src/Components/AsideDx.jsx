@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css'; // Importa i CSS di Bootstrap
 import { Container, Row, Col } from 'react-bootstrap';
+import { useNavigate } from "react-router-dom";
 
 const AsideDx = () => {
   const [profiles, setProfiles] = useState([]);
   const Token = process.env.TOKEN; // Assicurati che la variabile d'ambiente sia correttamente configurata
-
+  const navigate = useNavigate();
   useEffect(() => {
     const fetchProfiles = async () => {
       try {
@@ -40,7 +41,7 @@ const AsideDx = () => {
       <div className="list-group list-group-flush">
         {profiles.length > 0 ? (
           profiles.map((profile) => (
-            <Container>
+            <Container onClick={() => navigate(`/profiles/${profile._id}`)} key={profile._id}>
               <Row className='justify-content-start my-2' >
               <Col md={3}>
               <img

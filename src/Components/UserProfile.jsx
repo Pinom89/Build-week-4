@@ -1,15 +1,18 @@
 
 // Import style css personalizzato
 import '../style/Profile.css';
-
+import { useParams, useNavigate } from 'react-router-dom';
 
 import React, { useEffect, useState } from 'react';
 import { Alert, Col, Container, Row, Spinner, Button, ProgressBar } from 'react-bootstrap';
 
 function UserProfile() {
+    const params = useParams();
+    console.log(params);
+
 
   // URL dell'API per la lettura dei profili
-  const url = 'https://striveschool-api.herokuapp.com/api/profile/me';
+  const url = 'https://striveschool-api.herokuapp.com/api/profile/' + params._id;
 
   // Recupero il token di autorizzazione
   const apiKey = process.env.TOKEN;
