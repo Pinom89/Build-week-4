@@ -1,20 +1,27 @@
 import React, { useState, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css'; // Importa i CSS di Bootstrap
-import { Container, Row, Col } from 'react-bootstrap';
+import { Container, Row, Col, Spinner, Alert } from 'react-bootstrap';
 import { useNavigate } from "react-router-dom";
 
 const AsideDx = () => {
+
+  const url = 'https://striveschool-api.herokuapp.com/api/profile/';
+
   const [profiles, setProfiles] = useState([]);
   const Token = process.env.TOKEN; // Assicurati che la variabile d'ambiente sia correttamente configurata
+  const [isEnableSpinner, setIsEnableSpinner] = useState(false);
+  const [isError, setIsError] = useState(false);
   const navigate = useNavigate();
+
   useEffect(() => {
     const fetchProfiles = async () => {
+      setIsEnableSpinner(true);
       try {
-        const response = await fetch('https://striveschool-api.herokuapp.com/api/profile/', {
+        const response = await fetch(url, {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json',
-            'Authorization': `Bearer ${Token}`,
+            Authorization: 'Bearer ' + Token,
           },
         });
 
@@ -24,20 +31,26 @@ const AsideDx = () => {
 
         const data = await response.json();
         setProfiles(data);
+        setIsEnableSpinner(false);
+        setIsError(false);
         console.log(data);
-      } catch (error) {
+      }    
+      catch (error) {
         console.error('Errore nella richiesta:', error);
+        setIsError(true);
       }
     };
 
     fetchProfiles();
-  }, [Token]);
+  }, []);
 
   return (
     <section className="card" tabIndex="-1" data-view-name="profile-card">
       <div className="card-header">
         <h4 className="card-title">Altri profili simili</h4>
       </div>
+      {isEnableSpinner && <div className='text-center mt-1'><Spinner animation='grow' /></div>}
+      {isError && <div className='text-center mt-1'><Alert variant='danger'>Error loading...</Alert></div>}
       <div className="list-group list-group-flush">
         {profiles.length > 0 ? (
           profiles.map((profile) => (

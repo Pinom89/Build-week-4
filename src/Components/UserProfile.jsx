@@ -1,4 +1,3 @@
-
 // Import style css personalizzato
 import '../style/Profile.css';
 import { useParams, useNavigate } from 'react-router-dom';
@@ -12,10 +11,10 @@ function UserProfile() {
 
 
   // URL dell'API per la lettura dei profili
-  const url = 'https://striveschool-api.herokuapp.com/api/profile/' + params._id;
+  const url = 'https://striveschool-api.herokuapp.com/api/profile/';
 
   // Recupero il token di autorizzazione
-  const apiKey = process.env.TOKEN;
+  const Token = process.env.TOKEN;
   
   // Definizione degli stati locali
   const [profile, setProfile] = useState([]);
@@ -24,9 +23,9 @@ function UserProfile() {
 
   useEffect(() => {
     setIsEnableSpinner(true);
-    fetch(url, {
+    fetch(url + params._id, {
       headers: {
-        Authorization: 'Bearer ' + apiKey,
+        Authorization: 'Bearer ' + Token,
       },
     })
     .then((response) => response.json())
@@ -40,12 +39,12 @@ function UserProfile() {
       setIsError(true);
     })
     .finally(() => setIsEnableSpinner(false)); 
-  }, [])
+  }, [params._id])
 
   return ( 
     <>
-      {isEnableSpinner && <div className='text-center'><Spinner animation='grow' /></div>}
-      {isError && <div className='text-center'><Alert variant='danger'>Error loading...</Alert></div>}
+      {isEnableSpinner && <div className='text-center mt-5'><Spinner animation='grow' /></div>}
+      {isError && <div className='text-center mt-5'><Alert variant='danger'>Error loading...</Alert></div>}
       <div className='border-0 content-card'>
         <Container className='pb-4 content__profile'>
           <Row className='profile__bg'>

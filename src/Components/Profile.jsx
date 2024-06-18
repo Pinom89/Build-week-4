@@ -11,7 +11,7 @@ function Profile() {
   const url = 'https://striveschool-api.herokuapp.com/api/profile/me';
 
   // Recupero il token di autorizzazione
-  const apiKey = process.env.TOKEN;
+  const Token = process.env.TOKEN;
   
   // Definizione degli stati locali
   const [profile, setProfile] = useState([]);
@@ -22,7 +22,7 @@ function Profile() {
     setIsEnableSpinner(true);
     fetch(url, {
       headers: {
-        Authorization: 'Bearer ' + apiKey,
+        Authorization: 'Bearer ' + Token,
       },
     })
     .then((response) => response.json())
@@ -40,8 +40,8 @@ function Profile() {
 
   return ( 
     <>
-      {isEnableSpinner && <div className='text-center'><Spinner animation='grow' /></div>}
-      {isError && <div className='text-center'><Alert variant='danger'>Error loading...</Alert></div>}
+      {isEnableSpinner && <div className='text-center mt-5'><Spinner animation='grow' /></div>}
+      {isError && <div className='text-center mt-5'><Alert variant='danger'>Error loading...</Alert></div>}
       <div className='border-0 content-card'>
         <Container className='pb-4 content__profile'>
           <Row className='profile__bg'>
