@@ -66,18 +66,18 @@ function Profile() {
                 5 collegamenti
               </p>
               <div className='d-flex justify-content-start w-100'>
-                <Button className='profile__button open-to-btn'>
+                <button className='profile__button open__to__btn'>
                   Disponibile per
-                </Button>
-                <Button
+                </button>
+                <button
                   variant='outline-primary'
-                  className='add__btn profile__button mx-3'
+                  className='add__btn mx-3'
                 >
                   Aggiungi sezione profilo
-                </Button>
-                <Button variant='outline-secondary' className='profile__button'>
+                </button>
+                <button variant='outline-secondary' className='btn__altro'>
                   Altro
-                </Button>
+                </button>
               </div>
             </Col>
             <Col xs={12} md={4}>
@@ -118,9 +118,9 @@ function Profile() {
               <div className='content__riepilogo'>
                 <h5>Scrivi un riepilogo per mettere in evidenza la tua personalità o la tua esperienza lavorativa</h5>
                 <p>Gli utenti che includono un riepilogo ricevono fino a 3,9 volte più visualizzazioni del profilo.</p>
-                <Button variant='outline-secondary' className='profile__button'>
+                <button variant='outline-secondary' className='btn__altro'>
                   Aggiungi un riepilogo
-                </Button>
+                </button>
               </div>
             </Col>
           </Row>

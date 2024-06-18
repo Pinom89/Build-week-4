@@ -79,19 +79,43 @@
 }
 
 .profile__button {
+  background-color: #0a66c2;
   border-radius: 30px;
   height: 35px;
-  padding: 0px 20px;
+  padding: 0 20px;
   font-weight: 600;
 }
 
-.open-to-btn {
-  background-color: #0a66c2;
+.open__to__btn:hover {
+  background-color: #064d94;
 }
 
 .add__btn {
+  background-color: #fff;
+  border-radius: 30px;
+  height: 35px;
+  padding: 0 20px;
+  font-weight: 600;
   color: #0a66c2;
   border-color: #0a66c2;
+}
+
+.add__btn:hover {
+  border-color: #064d94;
+}
+
+.btn__altro {
+  background-color: #fff;
+  color: #000;
+  border-color: #353535;
+  border-radius: 30px;
+  height: 35px;
+  padding: 0 20px;
+  font-weight: 600;
+}
+
+.btn__altro:hover {
+  border-color: #000;
 }
 
 .content__consigliato {
