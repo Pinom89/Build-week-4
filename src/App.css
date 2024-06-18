@@ -39,6 +39,10 @@ body {
 
 .card {
   padding: 2em;
+  margin-top: 50px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 10px;
 }
 
 .read-the-docs {

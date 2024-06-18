@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css'; // Importa i CSS di Bootstrap
+import { Container, Row, Col } from 'react-bootstrap';
 
 const AsideDx = () => {
   const [profiles, setProfiles] = useState([]);
-  const Token = process.env.VITE_TOKEN_AUTORIZZAZIONE; // Assicurati che la variabile d'ambiente sia correttamente configurata
+  const Token = process.env.TOKEN; // Assicurati che la variabile d'ambiente sia correttamente configurata
 
   useEffect(() => {
     const fetchProfiles = async () => {
@@ -22,6 +23,7 @@ const AsideDx = () => {
 
         const data = await response.json();
         setProfiles(data);
+        console.log(data);
       } catch (error) {
         console.error('Errore nella richiesta:', error);
       }
@@ -31,19 +33,16 @@ const AsideDx = () => {
   }, [Token]);
 
   return (
-    <section className="card mt-2" tabIndex="-1" data-view-name="profile-card">
+    <section className="card" tabIndex="-1" data-view-name="profile-card">
       <div className="card-header">
-        <h2 className="card-title">Altri profili simili</h2>
+        <h4 className="card-title">Altri profili simili</h4>
       </div>
       <div className="list-group list-group-flush">
         {profiles.length > 0 ? (
           profiles.map((profile) => (
-            <a
-              key={profile._id}
-              className="list-group-item list-group-item-action d-flex align-items-center"
-              href={`https://www.linkedin.com/in/${profile.username}`}
-              target="_self"
-            >
+            <Container>
+              <Row className='justify-content-start my-2' >
+              <Col md={3}>
               <img
                 src={profile.image}
                 alt={`Foto del profilo di ${profile.name}`}
@@ -52,24 +51,27 @@ const AsideDx = () => {
                 height="48"
                 loading="lazy"
               />
-              <div>
-                <h5 className="mb-1">{profile.name} {profile.surname}</h5>
-                <p className="mb-1">{profile.title}</p>
-              </div>
-            </a>
+              </Col>
+              <Col md={9} className='d-column '>
+                <h5 className="mb-1 text-start">{profile.name} {profile.surname}</h5>
+                <p className="mb-1 text-start">{profile.title}</p>
+              </Col>
+              </Row>
+            </Container >
           ))
         ) : (
           <p className="list-group-item">Nessun profilo trovato</p>
         )}
       </div>
       <div className="card-footer">
-        <a
+       {/* <a
           className="btn btn-secondary btn-sm w-100"
-          href="https://www.linkedin.com"
+           href="https://www.linkedin.com" 
           target="_self"
         >
           Mostra tutto
-        </a>
+        </a> */}
+
       </div>
     </section>
   );

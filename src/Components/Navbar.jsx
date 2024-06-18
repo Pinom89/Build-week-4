@@ -1,6 +1,6 @@
 import React from 'react';
 import { Navbar, Container, Nav, FormControl, InputGroup, NavDropdown } from 'react-bootstrap';
-
+import { NavLink } from 'react-router-dom';
 export default function LinkedInNavbar() {
   return (
     <Navbar bg="white" expand="lg" className='position-absolute top-0 w-100 start-0' style={{height:'64px'}}>
@@ -26,12 +26,13 @@ export default function LinkedInNavbar() {
 
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
-          {/* Link di navigazione */}
+          
           <Nav className="m-auto">
-            <Nav.Link href="#home" className="d-flex flex-column align-items-center me-4">
+            <NavLink to="/" className="nav-link d-flex flex-column align-items-center me-4">
               <i className="fas fa-home mt-1"></i>
               <span>Home</span>
-            </Nav.Link>
+            </NavLink>
+            
             <Nav.Link href="#network" className="d-flex flex-column align-items-center me-4">
               <i className="fas fa-user-friends mt-1"></i>
               <span>Rete</span>
