@@ -44,3 +44,32 @@ body {
 .read-the-docs {
   color: #888;
 }
+
+.navbar-nav .nav-link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.navbar-nav .nav-link i {
+  font-size: 20px;
+}
+
+.navbar-nav .nav-link span {
+  font-size: 12px;
+}
+
+.divider {
+  width:1px;
+  height:62px;
+  background-color: #e0e0e0;
+}
+
+.try {
+  font-size: 13px;
+  margin-top:10px;
+  margin-left:20px;
+  text-decoration: underline;
+  color:#ab6b0a;
+  cursor: pointer;
+}
