@@ -20,6 +20,9 @@
 
 body {
   background-color: #F4F2EE;
+  width: 100%;
+  padding:0;
+  margin:0;
 }
 
 @keyframes logo-spin {
@@ -83,3 +86,104 @@ body {
   color:#ab6b0a;
   cursor: pointer;
 }
+
+
+@media (min-width:500px) and (max-width:990px){
+
+  #basic-navbar-nav {
+    background-color: white;
+    z-index:2;
+    height: 400px;
+    box-shadow: 0px 4px 8px rgba(0,0,0,0.1);
+    padding:15px !important;
+    padding-top: 0px;
+    align-items: start;
+    margin-top: 7px;
+
+
+  }
+
+
+  .divider {
+    display: none;
+  }
+
+  .try {
+    display: none;
+  }
+
+
+  .container {
+    padding:0 !important;
+  }
+
+  #home, #network, #chat, #notifiche, #work, #business, #profile {
+    flex-direction: row !important;
+    margin-bottom:10px;
+  }
+
+  i {
+    margin-right: 20px;
+  }
+
+  .logo-img {
+    margin-left:20px;
+  }
+
+ #nav-dropdown {
+  position: absolute;
+  left:0;
+  top:10px;
+ }
+
+ #nav-dropdown-business {
+  position: absolute;
+  left:0;
+  top:60px
+ }
+
+.dropdown-toggle::after {
+  display: none !important;
+}
+
+#home span:hover, #network span:hover, #chat span:hover, #notifiche span:hover, #work span:hover, #business span:hover, #profile:hover, #nav-dropdown:hover, #nav-dropdown-business:hover {
+  text-decoration: underline;
+}
+
+
+
+
+
+}
+
+@media (min-width:992px) and (max-width:1199px) {
+  .nav {
+    padding-top:60px
+  }
+
+  .logo-img, .input-search {
+    position: relative;
+  }
+
+  .logo-img {
+    right:18px
+  }
+
+  .input-search{
+    right:26px;
+  }
+
+  .divider {
+    position:relative;
+    top:-60px;
+    left:400px;
+    margin-right: 60px;
+    
+  }
+
+
+}
+
+
+
+
