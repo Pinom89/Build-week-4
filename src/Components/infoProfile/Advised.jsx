@@ -1,4 +1,4 @@
-import { Col, Container, ProgressBar, Row } from "react-bootstrap";
+import { Col, Container, ProgressBar, Row } from 'react-bootstrap';
 
 
 function Advised() {
@@ -9,9 +9,12 @@ function Advised() {
         <Row className='user__detail'>
           <Col>
             <h5 className='name mb-0'>Consigliato per te</h5>
-            <p className='my-0 occupation'>Solo per te</p>
+            <p className='my-0 occupation text-muted'><i className='fa-solid fa-eye'></i> Solo per te</p>
             <p>Intermedio</p>
-            <ProgressBar variant='secondary' now={60} className='bg-light progress__bar' />
+            <div className='d-flex align-items-center gap-2 p-0'>
+              <ProgressBar variant='secondary' now={60} className='bg-light progress__bar' />
+              <span className='my-0 occupation text-muted'>6/7</span>
+            </div>
             <p className='my-0 location text-muted'>Completa 1 passaggio per raggiungere il livello <span className='connections'>Massimo</span></p>
             <div className='content__riepilogo'>
               <h5>Scrivi un riepilogo per mettere in evidenza la tua personalità o la tua esperienza lavorativa</h5>

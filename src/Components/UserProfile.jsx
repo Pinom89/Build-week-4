@@ -8,6 +8,8 @@ import Advised from './infoProfile/Advised';
 import Analyses from './infoProfile/Analyses';
 import Resources from './infoProfile/Resources';
 import Activity from './infoProfile/Activity';
+import Experiences from './infoProfile/Experiences';
+import Skills from './infoProfile/Skills';
 
 function UserProfile() {
     const params = useParams();
@@ -129,15 +131,21 @@ function UserProfile() {
 
       {/* Consigliato per te */}
       <Advised />
-
+      
       {/* Analisi */}
       <Analyses />
 
       {/* Risorse */}
       <Resources />
-
+      
       {/* Attività */}
       <Activity />
+
+      {/* Esperienze */}
+      <Experiences />
+
+      {/* Competenze */}
+      <Skills />
     </> 
   );
 };

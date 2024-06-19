@@ -1,4 +1,4 @@
-import { Button, Col, Container, Row } from "react-bootstrap";
+import { Button, Col, Container, Row } from 'react-bootstrap';
 
 function Activity() {
   return (
@@ -14,7 +14,7 @@ function Activity() {
         </Row>
       </Container>
       <div className='link__analisi'>
-        <p className='text-center'>Mostra tutte le attività <i className="fa-solid fa-arrow-right"></i></p>
+        <p className='text-center'>Mostra tutte le attività <i className='fa-solid fa-arrow-right'></i></p>
       </div>
     </>
   );

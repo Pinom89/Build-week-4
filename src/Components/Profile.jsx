@@ -7,6 +7,8 @@ import Advised from './infoProfile/Advised';
 import Analyses from './infoProfile/Analyses';
 import Resources from './infoProfile/Resources';
 import Activity from './infoProfile/Activity';
+import Experiences from './infoProfile/Experiences';
+import Skills from './infoProfile/Skills';
 
 function Profile() {
 
@@ -57,7 +59,9 @@ function Profile() {
         <Row className='profile__image'>
           <img className='image__user' src={profile.image} alt={profile.name} />
         </Row>
-
+        <div className='d-flex justify-content-end'>
+          <i className='fa-solid fa-pen'></i>
+        </div>
         <Row className='user__detail'>
           <Col xs={12} md={8}>
             <h4 className='name mb-0 justify-content-start'>
@@ -69,17 +73,22 @@ function Profile() {
             <p className='my-2 connections'>
               5 collegamenti
             </p>
-            <div className='d-flex justify-content-start w-100'>
-              <button className='profile__button open__to__btn'>
+            <div className='d-column justify-content-start'>
+              <button 
+                className='profile__button open__to__btn mx-3 mt-3'
+              >
                 Disponibile per
               </button>
               <button
                 variant='outline-primary'
-                className='add__btn mx-3'
+                className='add__btn mx-3 mt-3'
               >
                 Aggiungi sezione profilo
               </button>
-              <button variant='outline-secondary' className='btn__altro'>
+              <button 
+                variant='outline-secondary' 
+                className='btn__altro mt-3'
+              >
                 Altro
               </button>
             </div>
@@ -135,6 +144,12 @@ function Profile() {
       
       {/* Attività */}
       <Activity />
+
+      {/* Esperienze */}
+      <Experiences />
+
+      {/* Competenze */}
+      <Skills />
     </> 
   );
 };
