@@ -12,8 +12,9 @@ import Experiences from './infoProfile/Experiences';
 import Skills from './infoProfile/Skills';
 
 function UserProfile() {
-    const params = useParams();
-    console.log(params);
+
+  const params = useParams();
+  console.log(params);
 
 
   // URL dell'API per la lettura dei profili
@@ -52,7 +53,7 @@ function UserProfile() {
       {isEnableSpinner && <div className='text-center mt-5'><Spinner animation='grow' /></div>}
       {isError && <div className='text-center mt-5'><Alert variant='danger'>Error loading...</Alert></div>}
       
-      <Container className='content__card border-0 pb-4 content__profile'>
+      <Container className='pb-2 border-0 content__card content__profile'>
         <Row className='profile__bg'>
           <img
             src='https://media.licdn.com/dms/image/C4D16AQH3Fs7tJvTAbg/profile-displaybackgroundimage-shrink_350_1400/0/1625442218069?e=1724284800&v=beta&t=nl44PVgE69kZ53-JtB_5NDes4bVAvNJe84KSTVN8B3o'
@@ -63,7 +64,9 @@ function UserProfile() {
         <Row className='profile__image'>
           <img className='image__user' src={profile.image} alt={profile.name} />
         </Row>
-
+        <div className='d-flex justify-content-end '>
+          <button className='upgrade__profile p-0'><i className='fa-solid fa-pen'></i></button>
+        </div>
         <Row className='user__detail'>
           <Col xs={12} md={8}>
             <h4 className='name mb-0 justify-content-start'>
@@ -75,17 +78,22 @@ function UserProfile() {
             <p className='my-2 connections'>
               5 collegamenti
             </p>
-            <div className='d-flex justify-content-start w-100'>
-              <button className='profile__button open__to__btn'>
+            <div className='d-column justify-content-start'>
+              <button 
+                className='profile__button open__to__btn mx-3 mt-3'
+              >
                 Disponibile per
               </button>
               <button
                 variant='outline-primary'
-                className='add__btn mx-3'
+                className='add__btn mx-3 mt-3'
               >
                 Aggiungi sezione profilo
               </button>
-              <button variant='outline-secondary' className='btn__altro'>
+              <button 
+                variant='outline-secondary' 
+                className='btn__altro mt-3'
+              >
                 Altro
               </button>
             </div>
@@ -111,6 +119,7 @@ function UserProfile() {
               </li>
             </ul>
           </Col>
+
           <div className='d-flex justify-content-center gap-4 p-4'>
             <div className='content__info_1 w-75 p-2'>
               <Col>
