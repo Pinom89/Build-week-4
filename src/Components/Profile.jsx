@@ -132,7 +132,7 @@ function Profile() {
           </div>
         </Row>
       </Container>
-      
+
       {/* Consigliato per te */}
       <Advised />
       

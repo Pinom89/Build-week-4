@@ -59,7 +59,7 @@ export default function LinkedInNavbar() {
           </Nav>      
 
           <Nav>
-            <NavDropdown title={<span className="d-flex flex-column align-items-center"><i class="bi bi-grid-3x3-gap-fill"></i>Per le aziende</span>} id="nav-dropdown-business" className="d-flex flex-column align-items-center">
+            <NavDropdown title={<span className="d-flex flex-column align-items-center"><i className="bi bi-grid-3x3-gap-fill"></i>Per le aziende</span>} id="nav-dropdown-business" className="d-flex flex-column align-items-center">
               <NavDropdown.Item href="#business-profile">Profilo aziendale</NavDropdown.Item>
               <NavDropdown.Item href="#business-settings">Impostazioni aziendali</NavDropdown.Item>
             </NavDropdown>
