@@ -9,8 +9,8 @@ function Experiences() {
             <div className='d-flex align-items-center justify-content-between'>
               <h5 className='name mb-0'>Esperienze</h5>
               <div className='mx-3'>
-                <span className='mx-3'><i className='fa-solid fa-plus'></i></span>
-                <span><i className='fa-solid fa-pen'></i></span>
+                <button className='mx-1 add__experiences'><i className='fa-solid fa-plus'></i></button>
+                <button className='upgrade__profile p-0'><i className='fa-solid fa-pen'></i></button>
               </div>
             </div>
             <Container>

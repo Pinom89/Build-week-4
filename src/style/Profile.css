@@ -6,6 +6,7 @@
 
 .content__card {
   margin-top: 50px;
+  position: relative;
 }
 
 .content__profile {
@@ -29,21 +30,21 @@
 .profile__image {
   border: 6px solid #fff;
   border-radius: 50%;
-  position: relative;
-  top: -80px;
+  position: absolute;
+  top: 130px;
   left: 80px;
-  width: 147px;
+  width: 150px;
   aspect-ratio: 1/1;
 }
 
 .image__user {
-  position: absolute;
-  top: -1px;
-  left: -13px;
-  min-width: 10em;
+  position: inherit;
+  top: -2px;
+  left: -12px;
+  min-width: 162px;
   border-radius: 50%;
   object-fit: cover;
-  aspect-ratio: 1.1/1;
+  aspect-ratio: 1.1 / 1;
   z-index: 1;
 }
 
@@ -182,4 +183,23 @@
 
 .content__attività {
   margin-top: 10px;
+}
+
+.upgrade__profile, 
+.add__experiences {
+  background-color: #fff;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  color: #000;
+  border: 0;
+}
+
+.upgrade__profile:hover,
+.add__experiences:hover {
+  background-color: #F3F3F3;
+  border: 0;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
 }

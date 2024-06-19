@@ -59,8 +59,8 @@ function Profile() {
         <Row className='profile__image'>
           <img className='image__user' src={profile.image} alt={profile.name} />
         </Row>
-        <div className='d-flex justify-content-end'>
-          <i className='fa-solid fa-pen'></i>
+        <div className='d-flex justify-content-end '>
+          <button className='upgrade__profile p-0'><i className='fa-solid fa-pen'></i></button>
         </div>
         <Row className='user__detail'>
           <Col xs={12} md={8}>
@@ -132,7 +132,7 @@ function Profile() {
           </div>
         </Row>
       </Container>
-
+      
       {/* Consigliato per te */}
       <Advised />
       
