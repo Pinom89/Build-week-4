@@ -50,7 +50,7 @@ export default function LinkedInNavbar() {
               <span>Notifiche</span>
             </Nav.Link>
             <NavDropdown title={<span className="d-flex flex-column align-items-center" id='profile'><i className="fas fa-user"></i>Tu</span>} id="nav-dropdown" className="d-flex flex-column align-items-center">
-              <NavDropdown.Item href="#profile">Profilo</NavDropdown.Item>
+              <NavDropdown.Item ><NavLink to="/" className='link-dark'>Profilo</NavLink></NavDropdown.Item>
               <NavDropdown.Item href="#settings">Impostazioni</NavDropdown.Item>
               <NavDropdown.Divider />
               <NavDropdown.Item href="#logout">Logout</NavDropdown.Item>

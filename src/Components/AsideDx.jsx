@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css'; // Importa i CSS di Bootstrap
-import { Container, Row, Col, Spinner, Alert } from 'react-bootstrap';
+import { Container, Row, Col, Spinner, Alert, Button } from 'react-bootstrap';
 import { useNavigate } from "react-router-dom";
+import ModalUsers from './ModalUsers';
 
 const AsideDx = () => {
 
@@ -12,6 +13,8 @@ const AsideDx = () => {
   const [isEnableSpinner, setIsEnableSpinner] = useState(false);
   const [isError, setIsError] = useState(false);
   const navigate = useNavigate();
+  const tenprofiles = profiles.slice(0, 20);
+
 
   useEffect(() => {
     const fetchProfiles = async () => {
@@ -52,8 +55,8 @@ const AsideDx = () => {
       {isEnableSpinner && <div className='text-center mt-1'><Spinner animation='grow' /></div>}
       {isError && <div className='text-center mt-1'><Alert variant='danger'>Error loading...</Alert></div>}
       <div className="list-group list-group-flush p-4">
-        {profiles.length > 0 ? (
-          profiles.map((profile) => (
+        {tenprofiles.length > 0 ? (
+          tenprofiles.map((profile) => (
             <Container onClick={() => navigate(`/profiles/${profile._id}`)} key={profile._id}>
               <Row className='justify-content-start my-2' >
               <Col md={3}>
@@ -79,14 +82,7 @@ const AsideDx = () => {
         )}
       </div>
       <div className="card-footer">
-       {/* <a
-          className="btn btn-secondary btn-sm w-100"
-           href="https://www.linkedin.com" 
-          target="_self"
-        >
-          Mostra tutto
-        </a> */}
-
+          <ModalUsers profiles={profiles} />
       </div>
     </section>
   );
