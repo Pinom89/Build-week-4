@@ -4,7 +4,7 @@
 
 */
 
-.content-card {
+.content__card {
   margin-top: 50px;
 }
 
@@ -14,14 +14,14 @@
   border-radius: 10px;
 }
 
-.profile__bg {
+/* .profile__bg {
   justify-content: start;
-}
+} */
 
 .profile__bg img {
   padding: 0;
   width: 100%;
-  height: 12em;
+  height: 15em;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
 }
@@ -30,12 +30,10 @@
   border: 6px solid #fff;
   border-radius: 50%;
   position: relative;
-  
-  
   top: -80px;
   left: 80px;
   width: 147px;
-  height: 148px;
+  aspect-ratio: 1/1;
 }
 
 .image__user {
@@ -60,17 +58,29 @@
 .education {
   font-weight: 600;
   font-size: 15px;
+  list-style: none;
 }
 
 .education img {
   width: 3em;
   height: 3em;
+  border-radius: 50%;
+  margin-right: 10px;
 }
-
  
 .contact-info {
   color: #0a66c2;
   font-weight: 500;
+}
+
+.content__info_1 {
+  background-color: #DDE7F1;
+  border-radius: 10px;
+}
+
+.content__info_2 {
+  border: 1px solid #ccc;
+  border-radius: 10px;
 }
 
 .connections {
@@ -83,13 +93,14 @@
 .profile__button {
   background-color: #0a66c2;
   border-radius: 30px;
+  
   height: 35px;
   padding: 0 20px;
   font-weight: 600;
 }
 
 .open__to__btn:hover {
-  background-color: #064d94;
+  background-color: #004182;
 }
 
 .add__btn {
@@ -103,7 +114,8 @@
 }
 
 .add__btn:hover {
-  border-color: #064d94;
+  border-color: #004182;
+  background-color: #EBF4FD;
 }
 
 .btn__altro {
@@ -117,7 +129,8 @@
 }
 
 .btn__altro:hover {
-  border-color: #000;
+  border-color: #181818;
+  background-color: #F3F3F3;
 }
 
 .content__consigliato {
@@ -131,8 +144,17 @@
   border-radius: 10px;
 }
 
-.progress__bar {
-  height: 8px;
+.progress__bar.progress {
+  width: 100%;
+  height: 6px;
+  background-color: #56687A;
+}
+
+.content__info__profile {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
 }
 
 .content__analisi {
@@ -140,7 +162,18 @@
 }
 
 .link__analisi {
-  border-top: 1px solid #ccc;
+  border-left: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  background-color: #fff;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.link__analisi:hover {
+  background-color: #F3F3F3;
+  height: 41px;
+  cursor: pointer;
 }
 
 .content__risorse {
