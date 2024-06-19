@@ -51,7 +51,7 @@ const AsideDx = () => {
       </div>
       {isEnableSpinner && <div className='text-center mt-1'><Spinner animation='grow' /></div>}
       {isError && <div className='text-center mt-1'><Alert variant='danger'>Error loading...</Alert></div>}
-      <div className="list-group list-group-flush">
+      <div className="list-group list-group-flush p-4">
         {profiles.length > 0 ? (
           profiles.map((profile) => (
             <Container onClick={() => navigate(`/profiles/${profile._id}`)} key={profile._id}>
@@ -66,11 +66,12 @@ const AsideDx = () => {
                 loading="lazy"
               />
               </Col>
-              <Col md={9} className='d-column '>
+              <Col md={9} className='d-column'>
                 <h5 className="mb-1 text-start">{profile.name} {profile.surname}</h5>
                 <p className="mb-1 text-start">{profile.title}</p>
               </Col>
               </Row>
+              <div className='divider_line'></div>
             </Container >
           ))
         ) : (

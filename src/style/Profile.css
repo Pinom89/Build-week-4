@@ -30,12 +30,10 @@
   border: 6px solid #fff;
   border-radius: 50%;
   position: relative;
-  
-  
   top: -80px;
   left: 80px;
   width: 147px;
-  height: 148px;
+  aspect-ratio: 1/1;
 }
 
 .image__user {
@@ -101,7 +99,7 @@
 }
 
 .open__to__btn:hover {
-  background-color: #064d94;
+  background-color: #004182;
 }
 
 .add__btn {
@@ -115,7 +113,8 @@
 }
 
 .add__btn:hover {
-  border-color: #064d94;
+  border-color: #004182;
+  background-color: #EBF4FD;
 }
 
 .btn__altro {
@@ -129,7 +128,8 @@
 }
 
 .btn__altro:hover {
-  border-color: #000;
+  border-color: #181818;
+  background-color: #F3F3F3;
 }
 
 .content__consigliato {
@@ -147,12 +147,30 @@
   height: 8px;
 }
 
+.content__info__profile {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
 .content__analisi {
   margin-top: 10px;
 }
 
 .link__analisi {
-  border-top: 1px solid #ccc;
+  border-left: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  background-color: #fff;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.link__analisi:hover {
+  background-color: #F3F3F3;
+  height: 41px;
+  cursor: pointer;
 }
 
 .content__risorse {

@@ -3,7 +3,7 @@ import { Col, Container, Row } from "react-bootstrap";
 function Analyses() {
   return (
     <>
-      <Container className='content__analisi content__profile p-4'>
+      <Container className='content__analisi content__info__profile p-4'>
         <Row className='user__detail'>
           <Col>
             <h5 className='name mb-0'>Analisi</h5>
@@ -21,12 +21,12 @@ function Analyses() {
                 </Col>
               </Row>
             </Container>
-            <div className='link__analisi'>
-              <p className='text-center'>Mostra tutte le analisi</p>
-            </div>
           </Col>
         </Row>
       </Container>
+      <div className='link__analisi'>
+        <p className='text-center'>Mostra tutte le analisi  <i className="fa-solid fa-arrow-right"></i></p>
+      </div>
     </>
   );
 };
