@@ -46,6 +46,9 @@ function Profile() {
     .finally(() => setIsEnableSpinner(false)); 
   }, [])
   
+console.log(profile);
+
+
 
   return ( 
     <>
@@ -150,7 +153,7 @@ function Profile() {
       <Activity />
 
       {/* Esperienze */}
-      <Experiences />
+      <Experiences id={profile._id} />
 
       {/* Competenze */}
       <Skills />

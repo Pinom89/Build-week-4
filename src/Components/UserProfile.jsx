@@ -14,7 +14,7 @@ import Skills from './infoProfile/Skills';
 function UserProfile() {
 
   const params = useParams();
-  console.log(params);
+  console.log(params.user);
 
 
   // URL dell'API per la lettura dei profili

@@ -5,7 +5,7 @@ import Spinner from 'react-bootstrap/Spinner';
 import Alert from 'react-bootstrap/Alert';
 
 
-function Experiences() {
+function Experiences({id}) {
   const Token = process.env.TOKEN;
   console.log(Token);
   const [Experiences, setExperience] = useState([]);
@@ -13,34 +13,33 @@ function Experiences() {
   const [isError, setIsError] = useState(false);
   const params = useParams();
 
-console.log(params)
+  console.log(id);
+  const idToUse = id || params._id; // Ottieni l'id da utilizzare
 
-  const urlExperiences = 'https://striveschool-api.herokuapp.com/api/profile/';
+  const urlExperiences = 'https://striveschool-api.herokuapp.com/api/profile';
   useEffect(() => {
     setIsEnableSpinner(true);
-    fetch(urlExperiences + params._id + '/experiences', {
+    fetch(`${urlExperiences}/${idToUse}/experiences`, {
       headers: {
         Authorization: 'Bearer ' + Token,
       },
     })
-    .then((response) => response.json())
-    .then((data) => {
-      
-      setExperience(data);
-      setIsError(false);
-    })
-    .catch((error) => {
-      console.error('Error loading...', error);
-      setIsError(true);
-    })
-    .finally(() => setIsEnableSpinner(false)); 
-  }, [params._id])
+      .then((response) => response.json())
+      .then((data) => {
+        setExperience(data);
+        setIsError(false);
+      })
+      .catch((error) => {
+        console.error('Error loading...', error);
+        setIsError(true);
+      })
+      .finally(() => setIsEnableSpinner(false));
+  }, [id, params._id]);
 
   console.log(Experiences);
 
-
-
   return (
+  
     <>
       <Container className='content__analisi content__info__profile p-4'>
         <Row className='user__detail'>
