@@ -1,8 +1,8 @@
-import { Col, Container, Row } from 'react-bootstrap';
+import { Col, Container, Row, Spinner, Alert, Button, Card, ListGroup } from 'react-bootstrap';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import Spinner from 'react-bootstrap/Spinner';
-import Alert from 'react-bootstrap/Alert';
+import { format } from 'date-fns';
+import ModalExperience from './ModalExperience';
 
 
 function Experiences({id}) {
@@ -59,11 +59,20 @@ function Experiences({id}) {
                <ul>
                {Experiences.length > 0 ? (
                 Experiences.map((experience) => (
-                  <div key={experience.id}>
-                    <li>{experience.company}</li>
-                    <li>{experience.description}</li>
-                    <li>{experience.startDate}</li>
-                    <li>{experience.endDate}</li>
+                  <div key={experience._id}>
+                    <Card>
+                      <Card.Header> <strong>{experience.company}</strong></Card.Header>
+                      <Card.Body>
+                        <Card.Title className='text-bold'>{experience.role}</Card.Title>
+                        <div className='d-flex gap-2 justify-content-start align-items-center'>
+                          <ListGroup.Item style={{border:'solid 1px #ccc', padding:'10px', borderRadius:'10px'}} >Data inizio:{format(new Date(experience.startDate), 'dd/MM/yyyy')}</ListGroup.Item>
+                          <ListGroup.Item style={{border:'solid 1px #ccc', padding:'10px', borderRadius:'10px'}}>Data fine: {format(new Date(experience.endDate), 'dd/MM/yyyy ')} </ListGroup.Item>
+                        </div>
+                        <div className="card-footer">
+                          <ModalExperience experience={experience} />
+                       </div>
+                      </Card.Body>
+                    </Card>
                   </div>
                      ))
                 ) : (
@@ -76,9 +85,6 @@ function Experiences({id}) {
           </Col>
         </Row>
       </Container>
-      <div className='link__analisi'>
-        <p className='text-center'>Mostra tutti i titoli di studio (3) <i className='fa-solid fa-arrow-right'></i></p>
-      </div>
     </>
   );
 };
