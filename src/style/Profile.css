@@ -4,7 +4,7 @@
 
 */
 
-.content-card {
+.content__card {
   margin-top: 50px;
 }
 
@@ -21,7 +21,7 @@
 .profile__bg img {
   padding: 0;
   width: 100%;
-  height: 12em;
+  height: 15em;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
 }
@@ -60,17 +60,29 @@
 .education {
   font-weight: 600;
   font-size: 15px;
+  list-style: none;
 }
 
 .education img {
   width: 3em;
   height: 3em;
+  border-radius: 50%;
+  margin-right: 10px;
 }
-
  
 .contact-info {
   color: #0a66c2;
   font-weight: 500;
+}
+
+.content__info_1 {
+  background-color: #DDE7F1;
+  border-radius: 10px;
+}
+
+.content__info_2 {
+  border: 1px solid #ccc;
+  border-radius: 10px;
 }
 
 .connections {
