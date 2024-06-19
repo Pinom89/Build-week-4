@@ -9,6 +9,7 @@ import Resources from './infoProfile/Resources';
 import Activity from './infoProfile/Activity';
 import Experiences from './infoProfile/Experiences';
 import Skills from './infoProfile/Skills';
+import { useNavigate } from 'react-router-dom';
 
 function Profile() {
 
@@ -23,6 +24,8 @@ function Profile() {
   const [isEnableSpinner, setIsEnableSpinner] = useState(false);
   const [isError, setIsError] = useState(false);
 
+
+
   useEffect(() => {
     setIsEnableSpinner(true);
     fetch(url, {
@@ -32,7 +35,7 @@ function Profile() {
     })
     .then((response) => response.json())
     .then((data) => {
-      console.log(data);
+      
       setProfile(data);
       setIsError(false);
     })
@@ -42,6 +45,7 @@ function Profile() {
     })
     .finally(() => setIsEnableSpinner(false)); 
   }, [])
+  
 
   return ( 
     <>

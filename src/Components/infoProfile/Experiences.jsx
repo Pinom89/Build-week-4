@@ -1,6 +1,45 @@
 import { Col, Container, Row } from 'react-bootstrap';
+import { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
+import Spinner from 'react-bootstrap/Spinner';
+import Alert from 'react-bootstrap/Alert';
+
 
 function Experiences() {
+  const Token = process.env.TOKEN;
+  console.log(Token);
+  const [Experiences, setExperience] = useState([]);
+  const [isEnableSpinner, setIsEnableSpinner] = useState(false);
+  const [isError, setIsError] = useState(false);
+  const params = useParams();
+
+console.log(params)
+
+  const urlExperiences = 'https://striveschool-api.herokuapp.com/api/profile/';
+  useEffect(() => {
+    setIsEnableSpinner(true);
+    fetch(urlExperiences + params._id + '/experiences', {
+      headers: {
+        Authorization: 'Bearer ' + Token,
+      },
+    })
+    .then((response) => response.json())
+    .then((data) => {
+      
+      setExperience(data);
+      setIsError(false);
+    })
+    .catch((error) => {
+      console.error('Error loading...', error);
+      setIsError(true);
+    })
+    .finally(() => setIsEnableSpinner(false)); 
+  }, [params._id])
+
+  console.log(Experiences);
+
+
+
   return (
     <>
       <Container className='content__analisi content__info__profile p-4'>
@@ -16,28 +55,22 @@ function Experiences() {
             <Container>
               <Row className='mt-4'>
                 <Col>
-
-                
-                  <ul>
-                    <li className='education mb-3'>
-                      <img
-                        src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT9bSdmyPGsBkS5WQ7fjHWoPIcYcHnOUlJ1cQ&s'
-                        alt='Logo Epicode'
-                        className='mr-2'
-                      />
-                      Epicode
-                    </li>
-                    <div className='divider_line mb-3'></div>
-
-                    <li className='education'>
-                      <img
-                        src='https://cdn.stocksnap.io/img-thumbs/960w/woman-developer_HMPNPRBUJ7.jpg'
-                        alt='Logo FullStack Web Developer'
-                        className='mr-2'
-                      />
-                      FullStack Web Developer
-                    </li>
-                  </ul>
+                {isEnableSpinner && <div className='text-center mt-5'><Spinner animation='grow' /></div>}
+                {isError && <div className='text-center mt-5'><Alert variant='danger'>Error loading...</Alert></div>}
+               <ul>
+               {Experiences.length > 0 ? (
+                Experiences.map((experience) => (
+                  <div key={experience.id}>
+                    <li>{experience.company}</li>
+                    <li>{experience.description}</li>
+                    <li>{experience.startDate}</li>
+                    <li>{experience.endDate}</li>
+                  </div>
+                     ))
+                ) : (
+                  <p>Non hai ancora pubblicato nulla</p>
+                )}
+             </ul>
                 </Col>
               </Row>
             </Container>
