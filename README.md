@@ -24,6 +24,10 @@ L'interfaccia è composta dalla Navbar, da un profilo personale e un aside dove 
 * Visualizzazione elenco utenti registrati
 * Aggiornamento profilo personale
 * Eliminazione profilo personale
+* Visualizzazionde della lista esperienze
+* Creazione di una nuova esperienza
+* Visualizzazione di una specifica esperienza
+* Modifica di una esperienza
 
 
 ## Tecnologie Utilizzate
