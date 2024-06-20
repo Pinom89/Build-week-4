@@ -35,9 +35,9 @@ export default function MyFooter () {
                 </Col>
                 <Col md={4} >
                 <ul>
-                    <li><span className="size mt-n"><i class="bi bi-question-circle-fill fs-4 me-3 "></i>Domande? </span> <br></br><span className="fw-normal margin"> Visita il nostro centro assistenza</span></li>
-                    <li> <span className="size mt-n"><i class="bi bi-gear-fill fs-4 me-3 "></i>Gestisci il tuo account e la tua privacy </span> <br></br> <span className="fw-normal margin">Vai alle impostazioni</span></li>
-                    <li><span className="size mt-n"><i class="bi bi-shield-shaded fs-4 me-3"></i>Trasparenza sui contenuti consigliati  </span><br></br> <span className="fw-normal margin">Scopri di più sui contenuti consigliati</span></li>
+                    <li><span className="size mt-n"><i className="bi bi-question-circle-fill fs-4 me-3 "></i>Domande? </span> <br></br><span className="fw-normal margin"> Visita il nostro centro assistenza</span></li>
+                    <li> <span className="size mt-n"><i className="bi bi-gear-fill fs-4 me-3 "></i>Gestisci il tuo account e la tua privacy </span> <br></br> <span className="fw-normal margin">Vai alle impostazioni</span></li>
+                    <li><span className="size mt-n"><i className="bi bi-shield-shaded fs-4 me-3"></i>Trasparenza sui contenuti consigliati  </span><br></br> <span className="fw-normal margin">Scopri di più sui contenuti consigliati</span></li>
                 </ul>
                     </Col>
                 <Col>

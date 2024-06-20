@@ -22,6 +22,7 @@ function Experiences({ id, login }) {
 
   const urlExperiences = 'https://striveschool-api.herokuapp.com/api/profile';
 
+  
   useEffect(() => {
     setIsEnableSpinner(true);
     fetch(`${urlExperiences}/${idToUse}/experiences`, {
@@ -40,6 +41,7 @@ function Experiences({ id, login }) {
       })
       .finally(() => setIsEnableSpinner(false));
   }, [id, params._id]);
+  
 
   console.log(Experiences);
 

@@ -80,13 +80,13 @@ function UserProfile() {
               <button 
                 className='profile__button open__to__btn mx-3 mt-3'
               >
-                <i class="fa-solid fa-user-plus"></i> Collegati
+                <i className="fa-solid fa-user-plus"></i> Collegati
               </button>
               <button
                 variant='outline-primary'
                 className='add__btn mx-3 mt-3'
               >
-                <i class="fa-solid fa-paper-plane"></i> Messaggio
+                <i className="fa-solid fa-paper-plane"></i> Messaggio
               </button>
               <button 
                 variant='outline-secondary' 
