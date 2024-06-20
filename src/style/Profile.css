@@ -203,3 +203,8 @@
   height: 50px;
   border-radius: 50%;
 }
+
+.select__user:hover {
+  cursor: pointer;
+  background-color: #F3F3F3;
+}

@@ -57,7 +57,7 @@ const AsideDx = () => {
       <div className="list-group list-group-flush p-4">
         {tenprofiles.length > 0 ? (
           tenprofiles.map((profile) => (
-            <Container onClick={() => navigate(`/profiles/${profile._id}`)} key={profile._id}>
+            <Container onClick={() => navigate(`/profiles/${profile._id}`)} key={profile._id} className='select__user'>
               <Row className='justify-content-start my-2' >
               <Col md={3}>
               <img
