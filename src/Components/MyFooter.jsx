@@ -8,7 +8,7 @@ export default function MyFooter () {
         <Container>
             <Row>
                 <Col >
-                <ul>
+                <ul className="p-0">
                     <li>Informazioni</li>
                     <li>Linee Guida della Community</li>
                     <li className="mb-4">Privacy e condizioni</li>
