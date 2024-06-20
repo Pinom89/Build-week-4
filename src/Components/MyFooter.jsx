@@ -52,7 +52,7 @@ export default function MyFooter () {
                 </Col>
             </Row>
             <Row>
-                <Col>
+                <Col className="p-0">
                 <p>
                    LinkedIn Corporation © 2024   
                 </p>
