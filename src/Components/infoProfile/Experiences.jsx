@@ -41,6 +41,7 @@ function Experiences({ id }) {
   console.log(Experiences);
 
   return (
+  
     <>
       <Container className='content__analisi content__info__profile p-4'>
         <Row className='user__detail'>

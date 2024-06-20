@@ -46,7 +46,7 @@ const AsideDx = () => {
 
     fetchProfiles();
   }, []);
-
+  console.log(profiles);
   return (
     <section className="card" tabIndex="-1" data-view-name="profile-card">
       <div className="card-header">
