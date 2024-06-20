@@ -1,23 +1,33 @@
-import { Button, Form, Modal } from "react-bootstrap";
+import { Form, Modal } from "react-bootstrap";
 import { useState } from 'react';
 
-function AddExperience({ id ,handleCommentChange,FormDataExperience, setFormDataExperience, idToUse}) {
-  
-
-  const superid = "6670713751a3a20015f06305";
+function AddExperience({ id, fetchExperiences }) {
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+
   const Token = process.env.TOKEN;
+
   const url = `https://striveschool-api.herokuapp.com/api/profile/${id}/experiences`;
 
-  
-  
-console.log(id);
-console.log(idToUse);
-  
+  const [FormDataExperience, setFormDataExperience] = useState({
+    role: '',
+    company: '',
+    startDate: '',
+    endDate: '',
+    description: '',
+    area: '',
+  });
+
+  const handleCommentChange = (e) => {
+    const { name, value } = e.target;
+    setFormDataExperience({
+      ...FormDataExperience,
+      [name]: value
+    });
+  };
+
   const sendComment = () => {
-    console.log(FormDataExperience)
     fetch(url, {
       method: 'POST',
       headers: {
@@ -29,10 +39,18 @@ console.log(idToUse);
     .then((response) => response.json())
     .then((data) => {
       console.log(data);
-      setFormDataExperience(data);
+      setFormDataExperience({
+        role: '',
+        company: '',
+        startDate: '',
+        endDate: '',
+        description: '',
+        area: '',
+      });
       handleClose();
+      fetchExperiences();
     })
-    .catch((error) => console.error(error))
+    .catch((error) => console.error(error));
   };
 
   return (
@@ -51,7 +69,7 @@ console.log(idToUse);
         </Modal.Header>
         <Modal.Body>
           <Form>
-            <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+            <Form.Group className="mb-3">
               <Form.Label>Ruolo</Form.Label>
               <Form.Control
                 name="role"
@@ -62,7 +80,7 @@ console.log(idToUse);
               />
             </Form.Group>
 
-            <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+            <Form.Group className="mb-3">
               <Form.Label>Azienda</Form.Label>
               <Form.Control
                 name="company"
@@ -72,7 +90,7 @@ console.log(idToUse);
               />
             </Form.Group>
 
-            <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+            <Form.Group className="mb-3">
               <Form.Label>Data inizio</Form.Label>
               <Form.Control
                 name="startDate"
@@ -81,7 +99,7 @@ console.log(idToUse);
                 onChange={handleCommentChange}
               />
             </Form.Group>
-            <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+            <Form.Group className="mb-3">
               <Form.Label>Data fine</Form.Label>
               <Form.Control
                 name="endDate"
@@ -90,7 +108,7 @@ console.log(idToUse);
                 onChange={handleCommentChange}
               />
             </Form.Group>
-            <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+            <Form.Group className="mb-3">
               <Form.Label>Descrizione</Form.Label>
               <Form.Control
                 name="description"
@@ -99,7 +117,7 @@ console.log(idToUse);
                 onChange={handleCommentChange}
               />
             </Form.Group>
-            <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+            <Form.Group className="mb-3">
               <Form.Label>Area</Form.Label>
               <Form.Control
                 name="area"
@@ -120,7 +138,7 @@ console.log(idToUse);
           <button 
             variant='outline-primary'
             className='add__btn'
-            onClick={ () => sendComment}>
+            onClick={sendComment}>
             Aggiungi Esperienza
           </button>
         </Modal.Footer>

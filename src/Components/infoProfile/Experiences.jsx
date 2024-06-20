@@ -4,11 +4,9 @@ import { useParams } from 'react-router-dom';
 import { format } from 'date-fns';
 import ModalExperience from './ModalExperience';
 import AddExperience from '../AddExperience';
-
-
+import UpdateExperience from '../UpdateExperience';
 
 function Experiences({ id, login }) {
-
   const Token = process.env.TOKEN;
   
   const [Experiences, setExperience] = useState([]);
@@ -16,35 +14,11 @@ function Experiences({ id, login }) {
   const [isError, setIsError] = useState(false);
   const params = useParams();
 
-  const idToUse = id || params._id; // Ottieni l'id da utilizzare
-
-  console.log(idToUse);
-  console.log('id=', id);
+  const idToUse = id || params._id;
 
   const urlExperiences = 'https://striveschool-api.herokuapp.com/api/profile';
 
-
-
-  // funzione di AddExperience
-  const handleCommentChange = (e) => {
-    const { name, value } = e.target;
-    setFormDataExperience({
-      ...FormDataExperience,
-      [name]: value
-    })
-  }
-
-  const [FormDataExperience, setFormDataExperience] = useState({
-    role: '',
-    company: '',
-    startDate: '',
-    endDate: '',
-    description: '',
-    area: '',
-  });
-
-  
-  useEffect(() => {
+  const fetchExperiences = () => {
     setIsEnableSpinner(true);
     fetch(`${urlExperiences}/${idToUse}/experiences`, {
       headers: {
@@ -61,33 +35,29 @@ function Experiences({ id, login }) {
         setIsError(true);
       })
       .finally(() => setIsEnableSpinner(false));
-  }, [id, params._id, FormDataExperience]);
-  
+  };
 
-  console.log(Experiences);
+  useEffect(() => {
+    fetchExperiences();
+  }, [id, params._id]);
 
   return (
-  
-    <>
-      <Container className='content__analisi content__info__profile p-4'>
-        <Row className='user__detail'>
-          <Col>
-            <div className='d-flex align-items-center justify-content-between'>
-              <h5 className='name mb-0'>Esperienze</h5>
-              {login === 'me' ?
-                (<div className='mx-3'>
-                  <AddExperience />
-                  {/* <button className='mx-1 add__experiences'><i className='fa-solid fa-plus'></i></button> */}
-                  {/* <button className='upgrade__profile p-0'><i className='fa-solid fa-pen'></i></button> */}
-                </div>
-                ) : ''}
-            </div>
-            <Container>
-              <Row>
-                <Col>
+    <Container className='content__analisi content__info__profile p-4'>
+      <Row className='user__detail'>
+        <Col>
+          <div className='d-flex align-items-center justify-content-between'>
+            <h5 className='name mb-0'>Esperienze</h5>
+            {login === 'me' ? (
+              <div className='mx-3'>
+                <AddExperience id={id} idToUse={idToUse} fetchExperiences={fetchExperiences} />
+              </div>
+            ) : ''}
+          </div>
+          <Container>
+            <Row>
+              <Col>
                 {isEnableSpinner && <div className='text-center mt-5'><Spinner animation='grow' /></div>}
                 {isError && <div className='text-center mt-5'><Alert variant='danger'>Error loading...</Alert></div>}
-               
                 {Experiences.length > 0 ? (
                   Experiences.map((experience) => (
                     <div key={experience._id}>
@@ -109,23 +79,23 @@ function Experiences({ id, login }) {
                           </div>
                           <div className="card-footer mt-2">
                             <ModalExperience experience={experience} />
-                            {login === 'me' ? (<AddExperience id={id} idToUse={idToUse} FormDataExperience={FormDataExperience} setFormDataExperience={setFormDataExperience} handleCommentChange={handleCommentChange} />) : ''}
-                        </div>
+                            {login === 'me' ? (<UpdateExperience />) : ''}
+                          </div>
                         </Card.Body>
                       </Card>
                     </div>
-                      ))
-                  ) : (
-                    <p>Non hai ancora pubblicato nulla</p>
-                  )}
-                </Col>
-              </Row>
-            </Container>
-          </Col>
-        </Row>
-      </Container>
-    </>
+                  ))
+                ) : (
+                  <p>Non hai ancora pubblicato nulla</p>
+                )}
+              </Col>
+            </Row>
+          </Container>
+        </Col>
+      </Row>
+    </Container>
   );
-};
+}
 
 export default Experiences;
+
