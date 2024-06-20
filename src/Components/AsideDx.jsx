@@ -46,7 +46,9 @@ const AsideDx = () => {
 
     fetchProfiles();
   }, []);
+
   console.log(profiles);
+
   return (
     <section className="card" tabIndex="-1" data-view-name="profile-card">
       <div className="card-header">
@@ -58,18 +60,18 @@ const AsideDx = () => {
         {tenprofiles.length > 0 ? (
           tenprofiles.map((profile) => (
             <Container onClick={() => navigate(`/profiles/${profile._id}`)} key={profile._id} className='select__user'>
-              <Row className='justify-content-start my-2' >
-              <Col md={3}>
+              <Row className='justify-content-start my-2'>
+              <Col sm={12} lg={3}>
               <img
                 src={profile.image}
-                alt={`Foto del profilo di ${profile.name}`}
+                alt={`Foto del profilo di ${profile.username}`}
                 className="rounded-circle me-3"
                 width="48"
                 height="48"
                 loading="lazy"
               />
               </Col>
-              <Col md={9} className='d-column'>
+              <Col sm={12} lg={9} className='d-column'>
                 <h5 className="mb-1 text-start">{profile.name} {profile.surname}</h5>
                 <p className="mb-1 text-start">{profile.title}</p>
               </Col>

@@ -4,9 +4,11 @@ import { useParams } from 'react-router-dom';
 import { format } from 'date-fns';
 import ModalExperience from './ModalExperience';
 import AddExperience from '../AddExperience';
+import UpdateExperience from '../UpdateExperience';
 
 
 function Experiences({ id, login }) {
+
   const Token = process.env.TOKEN;
   
   const [Experiences, setExperience] = useState([]);
@@ -84,6 +86,7 @@ function Experiences({ id, login }) {
                           </div>
                           <div className="card-footer mt-2">
                             <ModalExperience experience={experience} />
+                            {login === 'me' ? (<UpdateExperience />) : ''}
                         </div>
                         </Card.Body>
                       </Card>

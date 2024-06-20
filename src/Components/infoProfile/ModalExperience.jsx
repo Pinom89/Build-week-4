@@ -24,7 +24,7 @@ function ModalExperience({ experience }) {
           <Modal.Title>Esperienza lavorativa</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <Card>
+          <Card className='m-0'>
             <ListGroup variant='flush'>
               <ListGroup.Item>Ruolo: {experience.role}</ListGroup.Item>
               <ListGroup.Item>Compagnia: {experience.company}</ListGroup.Item>

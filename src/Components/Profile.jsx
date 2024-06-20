@@ -48,6 +48,8 @@ function Profile() {
     })
     .finally(() => setIsEnableSpinner(false)); 
   }, [])
+
+  console.log(profile);
   
   return ( 
     <>

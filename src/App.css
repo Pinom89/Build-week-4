@@ -88,7 +88,7 @@ body {
 }
 
 
-@media (min-width:500px) and (max-width:990px){
+@media (min-width:389px) and (max-width:889px) {
 
   #basic-navbar-nav {
     background-color: white;
@@ -99,10 +99,7 @@ body {
     padding-top: 0px;
     align-items: start;
     margin-top: 7px;
-
-
   }
-
 
   .divider {
     display: none;
@@ -117,7 +114,7 @@ body {
     padding:0 !important;
   }
 
-  #home, #network, #chat, #notifiche, #work, #business, #profile{
+  #home, #network, #chat, #notifiche, #work, #business, #profile {
     flex-direction: row !important;
     margin-bottom:10px;
   }
@@ -130,31 +127,27 @@ body {
     margin-left:20px;
   }
 
- #nav-dropdown {
-  flex-direction: row !important;
-  position: absolute;
-  left:0;
-  top:10px;
- }
+  #nav-dropdown {
+    flex-direction: row !important;
+    position: absolute;
+    left:0;
+    top:10px;
+  }
 
- #nav-dropdown-business span {
-  flex-direction: row !important;
-  position: absolute;
-  left:0px;
-  top:60px
- }
+  #nav-dropdown-business span {
+    flex-direction: row !important;
+    position: absolute;
+    left:0px;
+    top:60px
+  }
 
-.dropdown-toggle::after {
-  display: none !important;
-}
+  .dropdown-toggle::after {
+    display: none !important;
+  }
 
-#home span:hover, #network span:hover, #chat span:hover, #notifiche span:hover, #work span:hover, #business span:hover, #profile:hover, #nav-dropdown:hover, #nav-dropdown-business:hover {
-  text-decoration: underline;
-}
-
-
-
-
+  #home span:hover, #network span:hover, #chat span:hover, #notifiche span:hover, #work span:hover, #business span:hover, #profile:hover, #nav-dropdown:hover, #nav-dropdown-business:hover {
+    text-decoration: underline;
+  }
 
 }
 
@@ -171,7 +164,7 @@ body {
     right:18px
   }
 
-  .input-search{
+  .input-search {
     right:26px;
   }
 
@@ -182,7 +175,6 @@ body {
     margin-right: 60px;
     
   }
-
 
 }
 

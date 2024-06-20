@@ -33,8 +33,8 @@ function ModalUsers({ profiles }) {
                     src={profile.image}
                     alt={`Foto del profilo di ${profile.name}`}
                     className='rounded-circle me-3'
-                    width='48'
-                    height='48'
+                    width='50'
+                    height='50'
                     loading='lazy'
                   />
                 </Col>
