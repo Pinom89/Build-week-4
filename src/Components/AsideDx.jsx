@@ -1,3 +1,5 @@
+import '../style/Profile.css'; 
+
 import React, { useState, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css'; // Importa i CSS di Bootstrap
 import { Container, Row, Col, Spinner, Alert, Button } from 'react-bootstrap';
@@ -31,13 +33,10 @@ const AsideDx = () => {
         if (!response.ok) {
           throw new Error('Network response was not ok');
         }
-
         const data = await response.json();
         setProfiles(data);
         setIsEnableSpinner(false);
         setIsError(false);
-        console.log(data);
-
       }    
       catch (error) {
         console.error('Errore nella richiesta:', error);
@@ -58,7 +57,7 @@ const AsideDx = () => {
       <div className="list-group list-group-flush p-4">
         {tenprofiles.length > 0 ? (
           tenprofiles.map((profile) => (
-            <Container onClick={() =>   navigate(`/profiles/${profile._id}`)} key={profile._id}>
+            <Container onClick={() => navigate(`/profiles/${profile._id}`)} key={profile._id}>
               <Row className='justify-content-start my-2' >
               <Col md={3}>
               <img
@@ -90,4 +89,3 @@ const AsideDx = () => {
 }
 
 export default AsideDx;
-

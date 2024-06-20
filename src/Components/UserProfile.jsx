@@ -14,7 +14,7 @@ import Skills from './infoProfile/Skills';
 function UserProfile() {
 
   const params = useParams();
-  console.log(params.user);
+  // console.log(params.user);
 
 
   // URL dell'API per la lettura dei profili
@@ -37,7 +37,7 @@ function UserProfile() {
     })
     .then((response) => response.json())
     .then((data) => {
-      console.log(data);
+      // console.log(data);
       setProfile(data);
       setIsError(false);
     })
@@ -151,7 +151,7 @@ function UserProfile() {
       <Activity />
 
       {/* Esperienze */}
-      <Experiences />
+      <Experiences id={profile._id} />
 
       {/* Competenze */}
       <Skills />

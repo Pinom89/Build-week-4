@@ -10,6 +10,7 @@ import Activity from './infoProfile/Activity';
 import Experiences from './infoProfile/Experiences';
 import Skills from './infoProfile/Skills';
 import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 function Profile() {
 
@@ -36,6 +37,7 @@ function Profile() {
     .then((response) => response.json())
     .then((data) => {
       
+      
       setProfile(data);
       setIsError(false);
     })
@@ -46,10 +48,6 @@ function Profile() {
     .finally(() => setIsEnableSpinner(false)); 
   }, [])
   
-console.log(profile);
-
-
-
   return ( 
     <>
       {isEnableSpinner && <div className='text-center mt-5'><Spinner animation='grow' /></div>}
@@ -153,6 +151,7 @@ console.log(profile);
       <Activity />
 
       {/* Esperienze */}
+      <Experiences id={profile._id} />
       <Experiences id={profile._id} />
 
       {/* Competenze */}
