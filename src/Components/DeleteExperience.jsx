@@ -1,13 +1,38 @@
 import { useState } from "react";
 import { Modal } from "react-bootstrap";
 
-function DeleteExperience() {
+function DeleteExperience({ id, idExp, fetchExperiences }) {
+
+  const url = `https://striveschool-api.herokuapp.com/api/profile/${id}/experiences/${idExp}`;
 
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
-  
+
+  const Token = process.env.TOKEN;
+
+  const handleElimina = () => {
+    fetch(url, {
+      method: 'DELETE',
+      headers: {
+        Authorization: 'Bearer ' + Token,
+      }
+    })
+    .then(response => {
+      if (response.ok) {
+        handleClose();
+        fetchExperiences();
+      } else {
+        return response.json()
+        .then(data => {
+          console.error('Error:', data);
+        });
+      }
+    })
+    .catch(error => console.error(error));
+  }
+
   return(
     <>
       <button 
@@ -35,7 +60,7 @@ function DeleteExperience() {
           <button 
             variant='outline-primary'
             className='add__btn'
-            onClick={handleClose}>
+            onClick={handleElimina}>
             Elimina
           </button>
         </Modal.Footer>

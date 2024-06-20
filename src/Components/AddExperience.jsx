@@ -2,6 +2,7 @@ import { Form, Modal } from "react-bootstrap";
 import { useState } from 'react';
 
 function AddExperience({ id, fetchExperiences }) {
+  
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
