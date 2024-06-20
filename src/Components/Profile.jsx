@@ -59,7 +59,6 @@ function Profile() {
           <img
             src='https://media.licdn.com/dms/image/C4D16AQH3Fs7tJvTAbg/profile-displaybackgroundimage-shrink_350_1400/0/1625442218069?e=1724284800&v=beta&t=nl44PVgE69kZ53-JtB_5NDes4bVAvNJe84KSTVN8B3o'
             alt='Image backgroug profile'
-            className='shadow'
           />
         </Row>
         <Row className='profile__image'>

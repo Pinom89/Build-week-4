@@ -11,6 +11,7 @@ import Activity from './infoProfile/Activity';
 import Experiences from './infoProfile/Experiences';
 import Skills from './infoProfile/Skills';
 
+
 function UserProfile() {
 
   const params = useParams();
@@ -56,9 +57,8 @@ function UserProfile() {
       <Container className='pb-2 border-0 content__card content__profile'>
         <Row className='profile__bg'>
           <img
-            src='https://media.licdn.com/dms/image/C4D16AQH3Fs7tJvTAbg/profile-displaybackgroundimage-shrink_350_1400/0/1625442218069?e=1724284800&v=beta&t=nl44PVgE69kZ53-JtB_5NDes4bVAvNJe84KSTVN8B3o'
-            alt='Image backgroug profile'
-            className='shadow'
+            src='https://img.freepik.com/free-photo/gradient-navy-blue-digital-grid-wallpaper_53876-104785.jpg?size=626&ext=jpg&ga=GA1.1.1788614524.1718755200&semt=ais_user'
+            alt='Image background profile'
           />
         </Row>
         <Row className='profile__image'>
@@ -117,22 +117,6 @@ function UserProfile() {
               </li>
             </ul>
           </Col>
-
-          <div className='d-flex justify-content-center gap-4 p-4'>
-            <div className='content__info_1 w-75 p-2'>
-              <Col>
-                <p className='my-0 occupation'>Disponibile a lavorare</p>
-                <p className='my-0 occupation'>Ruoli Developer</p>
-                <a className='connections'>Mostra dettagli</a>
-              </Col>
-            </div>
-            <div className='content__info_2 w-75 p-2'>
-              <Col>
-                <p className='my-0 occupation'>Fai sapere che stai facendo selezione e attrai candidati qualificati</p>
-                <a className='connections'>Inizia</a>
-              </Col>
-            </div>
-          </div>
         </Row>
       </Container>
 

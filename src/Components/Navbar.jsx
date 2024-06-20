@@ -7,13 +7,13 @@ export default function LinkedInNavbar() {
     <Navbar bg="white" expand="lg" className='position-absolute top-0 w-100 start-0' style={{height:'64px'}}>
       <Container className='pt-1 pb-2'>
         {/* Logo e barra di ricerca */}
-        <Navbar.Brand href="#home" className='logo-img'>
+        <NavLink to='/' className='logo-img me-4'>
           <img
             src="https://blog.waalaxy.com/wp-content/uploads/2021/01/index.png"
             alt="LinkedIn Logo"
             style={{ width: '35px' }}
           />
-        </Navbar.Brand>
+        </NavLink>
         <InputGroup className="d-none d-lg-flex w-25 input-search">
           <FormControl
             placeholder="Cerca"
