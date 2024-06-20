@@ -11,7 +11,6 @@ import Experiences from './infoProfile/Experiences';
 import Skills from './infoProfile/Skills';
 import { useNavigate } from 'react-router-dom';
 
-
 function Profile() {
 
   // URL dell'API per la lettura dei profili
@@ -151,7 +150,6 @@ function Profile() {
       <Activity />
 
       {/* Esperienze */}
-      <Experiences id={profile._id} />
       <Experiences id={profile._id} />
 
       {/* Competenze */}
