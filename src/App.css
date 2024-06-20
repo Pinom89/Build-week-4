@@ -117,7 +117,7 @@ body {
     padding:0 !important;
   }
 
-  #home, #network, #chat, #notifiche, #work, #business, #profile {
+  #home, #network, #chat, #notifiche, #work, #business, #profile{
     flex-direction: row !important;
     margin-bottom:10px;
   }
@@ -131,14 +131,16 @@ body {
   }
 
  #nav-dropdown {
+  flex-direction: row !important;
   position: absolute;
   left:0;
   top:10px;
  }
 
- #nav-dropdown-business {
+ #nav-dropdown-business span {
+  flex-direction: row !important;
   position: absolute;
-  left:0;
+  left:0px;
   top:60px
  }
 
