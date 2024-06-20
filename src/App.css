@@ -194,10 +194,11 @@ footer ul li {
 }
 
 footer p {
+  margin-left:10px;
   text-align: left;
-  margin-left:30px;
   font-size:13.5px;
   color: #acacaa;
+
 }
 
 footer i {

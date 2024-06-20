@@ -8,7 +8,7 @@ export default function MyFooter () {
         <Container>
             <Row>
                 <Col >
-                <ul>
+                <ul className="p-0">
                     <li>Informazioni</li>
                     <li>Linee Guida della Community</li>
                     <li className="mb-4">Privacy e condizioni</li>
@@ -52,7 +52,7 @@ export default function MyFooter () {
                 </Col>
             </Row>
             <Row>
-                <Col>
+                <Col className="p-0">
                 <p>
                    LinkedIn Corporation © 2024   
                 </p>
