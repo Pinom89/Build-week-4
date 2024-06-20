@@ -5,6 +5,7 @@ import { format } from 'date-fns';
 import ModalExperience from './ModalExperience';
 import AddExperience from '../AddExperience';
 import UpdateExperience from '../UpdateExperience';
+import DeleteExperience from '../DeleteExperience';
 
 function Experiences({ id, login }) {
   const Token = process.env.TOKEN;
@@ -74,12 +75,13 @@ function Experiences({ id, login }) {
                             <ListGroup.Item 
                               style={{border:'solid 1px #ccc', padding:'10px', borderRadius:'10px'}}
                             >
-                              Data fine: {experience.endDate ? format(new Date(experience.endDate), 'dd/MM/yyyy') : 'Ancora in corso'} 
+                              {experience.endDate ? 'Data Fine: ' + format(new Date(experience.endDate), 'dd/MM/yyyy') : 'Ancora in corso'} 
                             </ListGroup.Item>
                           </div>
                           <div className="card-footer mt-2">
                             <ModalExperience experience={experience} />
                             {login === 'me' ? (<UpdateExperience />) : ''}
+                            {login === 'me' ? (<DeleteExperience />) : ''}
                           </div>
                         </Card.Body>
                       </Card>
