@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom';
 import { format } from 'date-fns';
 import ModalExperience from './ModalExperience';
 import AddExperience from '../AddExperience';
-import UpdateExperience from '../UpdateExperience';
+
 
 
 function Experiences({ id, login }) {
@@ -19,8 +19,29 @@ function Experiences({ id, login }) {
   const idToUse = id || params._id; // Ottieni l'id da utilizzare
 
   console.log(idToUse);
+  console.log('id=', id);
 
   const urlExperiences = 'https://striveschool-api.herokuapp.com/api/profile';
+
+
+
+  // funzione di AddExperience
+  const handleCommentChange = (e) => {
+    const { name, value } = e.target;
+    setFormDataExperience({
+      ...FormDataExperience,
+      [name]: value
+    })
+  }
+
+  const [FormDataExperience, setFormDataExperience] = useState({
+    role: '',
+    company: '',
+    startDate: '',
+    endDate: '',
+    description: '',
+    area: '',
+  });
 
   
   useEffect(() => {
@@ -40,7 +61,7 @@ function Experiences({ id, login }) {
         setIsError(true);
       })
       .finally(() => setIsEnableSpinner(false));
-  }, [id, params._id]);
+  }, [id, params._id, FormDataExperience]);
   
 
   console.log(Experiences);
@@ -88,7 +109,7 @@ function Experiences({ id, login }) {
                           </div>
                           <div className="card-footer mt-2">
                             <ModalExperience experience={experience} />
-                            {login === 'me' ? (<UpdateExperience />) : ''}
+                            {login === 'me' ? (<AddExperience id={id} idToUse={idToUse} FormDataExperience={FormDataExperience} setFormDataExperience={setFormDataExperience} handleCommentChange={handleCommentChange} />) : ''}
                         </div>
                         </Card.Body>
                       </Card>
