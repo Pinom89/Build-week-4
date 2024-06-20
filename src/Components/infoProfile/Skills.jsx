@@ -1,6 +1,6 @@
 import { Col, Container, Row } from 'react-bootstrap';
 
-function Skills() {
+function Skills({ login }) {
   return (
     <>
     <Container className='content__analisi content__info__profile p-4'>
@@ -8,10 +8,12 @@ function Skills() {
         <Col>
           <div className='d-flex align-items-center justify-content-between'>
             <h5 className='name mb-0'>Competenze</h5>
-            <div className='mx-3'>
-            <button className='mx-1 add__experiences'><i className='fa-solid fa-plus'></i></button>
-            <button className='upgrade__profile p-0'><i className='fa-solid fa-pen'></i></button>
-            </div>
+            {login === 'me' ?
+              (<div className='mx-3'>
+                <button className='mx-1 add__experiences'><i className='fa-solid fa-plus'></i></button>
+                <button className='upgrade__profile p-0'><i className='fa-solid fa-pen'></i></button>
+              </div>
+              ) : ''}
           </div>
           <Container>
             <Row className='mt-4'>

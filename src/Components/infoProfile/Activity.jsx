@@ -1,6 +1,6 @@
 import { Button, Col, Container, Row } from 'react-bootstrap';
 
-function Activity() {
+function Activity({ login }) {
   return (
     <>
       <Container className='content__attività content__info__profile p-4'>
@@ -8,15 +8,17 @@ function Activity() {
           <Col>
           <div className='d-flex align-items-center justify-content-between'>
             <h5 className='name mb-0'>Attività</h5>
-            <div className='mx-3'>
-            <button
-              variant='outline-primary'
-              className='add__btn mx-1 mt-3'
-            >
-              Crea un post
-            </button>
-              <button className='upgrade__profile p-0'><i className='fa-solid fa-pen'></i></button>
-            </div>
+            {login === 'me' ? 
+              (<div className='mx-3'>
+              <button
+                  variant='outline-primary'
+                  className='add__btn mx-1 mt-3'
+                >
+                  Crea un post
+                </button>
+                <button className='upgrade__profile p-0'><i className='fa-solid fa-pen'></i></button>
+              </div>
+            ) : ''}
           </div>
           <p className='my-0 connections'>5 followers</p>
           <h5>Non hai ancora pubblicato nulla</h5>

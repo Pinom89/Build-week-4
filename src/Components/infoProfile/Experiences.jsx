@@ -6,7 +6,7 @@ import ModalExperience from './ModalExperience';
 import AddExperience from '../AddExperience';
 
 
-function Experiences({ id }) {
+function Experiences({ id, login }) {
   const Token = process.env.TOKEN;
   
   const [Experiences, setExperience] = useState([]);
@@ -49,11 +49,13 @@ function Experiences({ id }) {
           <Col>
             <div className='d-flex align-items-center justify-content-between'>
               <h5 className='name mb-0'>Esperienze</h5>
-              <div className='mx-3'>
-                <AddExperience />
-                {/* <button className='mx-1 add__experiences'><i className='fa-solid fa-plus'></i></button> */}
-                {/* <button className='upgrade__profile p-0'><i className='fa-solid fa-pen'></i></button> */}
-              </div>
+              {login === 'me' ?
+                (<div className='mx-3'>
+                  <AddExperience />
+                  {/* <button className='mx-1 add__experiences'><i className='fa-solid fa-plus'></i></button> */}
+                  {/* <button className='upgrade__profile p-0'><i className='fa-solid fa-pen'></i></button> */}
+                </div>
+                ) : ''}
             </div>
             <Container>
               <Row>

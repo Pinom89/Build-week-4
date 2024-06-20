@@ -64,10 +64,8 @@ function UserProfile() {
         <Row className='profile__image'>
           <img className='image__user' src={profile.image} alt={profile.name} />
         </Row>
-        <div className='d-flex justify-content-end '>
-          <button className='upgrade__profile p-0'><i className='fa-solid fa-pen'></i></button>
-        </div>
-        <Row className='user__detail'>
+        
+        <Row className='user__detail mt-5'>
           <Col xs={12} md={8}>
             <h4 className='name mb-0 justify-content-start'>
               {profile.name} {profile.surname}
@@ -82,17 +80,17 @@ function UserProfile() {
               <button 
                 className='profile__button open__to__btn mx-3 mt-3'
               >
-                Disponibile per
+                <i class="fa-solid fa-user-plus"></i> Collegati
               </button>
               <button
                 variant='outline-primary'
                 className='add__btn mx-3 mt-3'
               >
-                Aggiungi sezione profilo
+                <i class="fa-solid fa-paper-plane"></i> Messaggio
               </button>
               <button 
                 variant='outline-secondary' 
-                className='btn__altro mt-3'
+                className='btn__altro mx-3 mt-3'
               >
                 Altro
               </button>

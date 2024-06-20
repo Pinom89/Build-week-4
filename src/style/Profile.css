@@ -32,7 +32,7 @@
   border-radius: 50%;
   position: absolute;
   top: 130px;
-  left: 80px;
+  left: 50px;
   width: 150px;
   aspect-ratio: 1/1;
 }
@@ -44,7 +44,7 @@
   min-width: 162px;
   border-radius: 50%;
   object-fit: cover;
-  aspect-ratio: 1.1 / 1;
+  aspect-ratio: 1.15 / 1;
   z-index: 1;
 }
 

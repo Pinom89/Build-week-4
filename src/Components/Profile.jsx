@@ -14,8 +14,10 @@ import UpdateProfile from './UpdateProfile';
 
 function Profile() {
 
+  const login = 'me';
+
   // URL dell'API per la lettura dei profili
-  const url = 'https://striveschool-api.herokuapp.com/api/profile/me';
+  const url = 'https://striveschool-api.herokuapp.com/api/profile/';
 
   // Recupero il token di autorizzazione
   const Token = process.env.TOKEN;
@@ -28,7 +30,7 @@ function Profile() {
 
   useEffect(() => {
     setIsEnableSpinner(true);
-    fetch(url, {
+    fetch(url + login, {
       headers: {
         Authorization: 'Bearer ' + Token,
       },
@@ -92,7 +94,7 @@ function Profile() {
               </button>
               <button 
                 variant='outline-secondary' 
-                className='btn__altro mt-3'
+                className='btn__altro mx-3 mt-3'
               >
                 Altro
               </button>
@@ -148,13 +150,13 @@ function Profile() {
       <Resources />
       
       {/* Attività */}
-      <Activity />
+      <Activity login={login} />
 
       {/* Esperienze */}
-      <Experiences id={profile._id} />
+      <Experiences id={profile._id} login={login} />
 
       {/* Competenze */}
-      <Skills />
+      <Skills login={login} />
     </> 
   );
 };
