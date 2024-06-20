@@ -47,12 +47,6 @@ function ModalExperience({ experience }) {
           >
             Chiudi
           </button>
-          <button 
-            variant='outline-primary'
-            className='add__btn'
-          >
-            Modifica
-          </button>
         </Modal.Footer>
       </Modal>
     </>
