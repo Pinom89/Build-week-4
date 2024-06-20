@@ -10,7 +10,6 @@ import Activity from './infoProfile/Activity';
 import Experiences from './infoProfile/Experiences';
 import Skills from './infoProfile/Skills';
 import { useNavigate } from 'react-router-dom';
-import { useNavigate } from 'react-router-dom';
 
 function Profile() {
 
@@ -151,7 +150,6 @@ function Profile() {
       <Activity />
 
       {/* Esperienze */}
-      <Experiences id={profile._id} />
       <Experiences id={profile._id} />
 
       {/* Competenze */}
