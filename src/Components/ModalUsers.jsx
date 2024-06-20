@@ -52,7 +52,7 @@ function ModalUsers({ profiles }) {
             variant='secondary' 
             className='btn__altro'
             onClick={handleClose}>
-            Close
+            Chiudi
           </button>
         </Modal.Footer>
       </Modal>

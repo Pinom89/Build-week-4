@@ -10,6 +10,7 @@ import Activity from './infoProfile/Activity';
 import Experiences from './infoProfile/Experiences';
 import Skills from './infoProfile/Skills';
 import { useNavigate } from 'react-router-dom';
+import UpdateProfile from './UpdateProfile';
 
 function Profile() {
 
@@ -23,7 +24,6 @@ function Profile() {
   const [profile, setProfile] = useState([]);
   const [isEnableSpinner, setIsEnableSpinner] = useState(false);
   const [isError, setIsError] = useState(false);
-
 
 
   useEffect(() => {
@@ -64,7 +64,8 @@ function Profile() {
           <img className='image__user' src={profile.image} alt={profile.name} />
         </Row>
         <div className='d-flex justify-content-end '>
-          <button className='upgrade__profile p-0'><i className='fa-solid fa-pen'></i></button>
+          <UpdateProfile />
+          {/* <button className='upgrade__profile p-0'><i className='fa-solid fa-pen'></i></button> */}
         </div>
         <Row className='user__detail'>
           <Col xs={12} md={8}>

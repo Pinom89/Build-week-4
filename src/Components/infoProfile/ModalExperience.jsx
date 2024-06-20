@@ -45,7 +45,7 @@ function ModalExperience({ experience }) {
             className='btn__altro' 
             onClick={handleClose}
           >
-            Close
+            Chiudi
           </button>
           <button 
             variant='outline-primary'

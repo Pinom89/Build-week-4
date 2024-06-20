@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { format } from 'date-fns';
 import ModalExperience from './ModalExperience';
+import AddExperience from '../AddExperience';
 
 
 function Experiences({ id }) {
@@ -49,7 +50,8 @@ function Experiences({ id }) {
             <div className='d-flex align-items-center justify-content-between'>
               <h5 className='name mb-0'>Esperienze</h5>
               <div className='mx-3'>
-                <button className='mx-1 add__experiences'><i className='fa-solid fa-plus'></i></button>
+                <AddExperience />
+                {/* <button className='mx-1 add__experiences'><i className='fa-solid fa-plus'></i></button> */}
                 {/* <button className='upgrade__profile p-0'><i className='fa-solid fa-pen'></i></button> */}
               </div>
             </div>

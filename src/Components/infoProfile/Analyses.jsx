@@ -35,7 +35,7 @@ function Analyses() {
         </Row>
       </Container>
       <div className='link__analisi'>
-        <p className='text-center'>Mostra tutte le analisi  <i className='fa-solid fa-arrow-right'></i></p>
+        <p className='text-center'>Mostra tutte le analisi <i className='fa-solid fa-arrow-right'></i></p>
       </div>
     </>
   );
