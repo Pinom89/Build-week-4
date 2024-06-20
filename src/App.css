@@ -187,5 +187,64 @@ body {
 }
 
 
+footer {
+  margin-top:80px;
 
+}
+
+footer ul li {
+  list-style: none;
+  text-align: left;
+  font-size:13px;
+  font-weight:500;
+  margin-bottom:15px;
+  color: #757473;
+}
+
+footer p {
+  text-align: left;
+  margin-left:30px;
+  font-size:13.5px;
+  color: #acacaa;
+}
+
+footer i {
+  color: #444443;
+  position: relative;
+  top:8px;
+}
+
+footer select {
+  padding:5px;
+  width:250px;
+  border-radius:5px;
+}
+
+
+.size {
+  font-size:16px;
+}
+
+.margin {
+  margin-left:40px;
+}
+
+.mt-n {
+  position: relative;
+  top:-10px;
+}
+
+.move {
+  position: relative;
+  left:-70px;
+  font-size: 14.5px;
+  color: #888787;
+}
+
+
+footer li:hover {
+  text-decoration: underline;
+  cursor: pointer;
+  color: rgb(1, 110, 187);
+}
 

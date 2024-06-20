@@ -9,11 +9,12 @@ import 'bootstrap-icons/font/bootstrap-icons.css';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import OtherProfile from './Pages/OtherProfile';
 import NotFound from './Pages/NotFound';
+import MyFooter from './Components/MyFooter';
 
 
 function App() {
-  const token=import.meta.env.VITE_TOKEN_AUTORIZZAZIONE;
-  console.log(token);
+  const token = process.env.TOKEN;
+  console.log(token)
 
   return (
     <Router>
@@ -35,6 +36,7 @@ function App() {
           element={<NotFound/>}
          />
         </Routes>
+        <MyFooter></MyFooter>
 
 
 
