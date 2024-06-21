@@ -80,7 +80,7 @@ function Experiences({ id, login }) {
                           </div>
                           <div className="card-footer mt-2">
                             <ModalExperience experience={experience} />
-                            {login === 'me' ? (<UpdateExperience />) : ''}
+                            {login === 'me' ? (<UpdateExperience id={id} idExp={experience._id} experience={experience} fetchExperiences={fetchExperiences} />) : ''}
                             {login === 'me' ? (<DeleteExperience id={id} idExp={experience._id} fetchExperiences={fetchExperiences} />) : ''}
                           </div>
                         </Card.Body>

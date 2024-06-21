@@ -37,7 +37,7 @@ function DeleteExperience({ id, idExp, fetchExperiences }) {
     <>
       <button 
         variant='outline-secondary' 
-        className='btn__altro mx-3 mt-3'
+        className='btn__altro mx-1 mt-3'
         onClick={handleShow}
       >
         Elimina
