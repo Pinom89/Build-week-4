@@ -4,11 +4,11 @@ import { useState } from 'react';
 function UpdateProfile({ profile, fetchProfile }) {
 
   console.log('Il mio profilo: ', profile);
-  console.log(profile.name)
-
+  
   const Token = process.env.TOKEN;
   const url = 'https://striveschool-api.herokuapp.com/api/profile/';
-
+  
+  const [show, setShow] = useState(false);
   
   const [formDataProfile, setFormDataProfile] = useState({ 
     name: profile.name,
@@ -20,13 +20,13 @@ function UpdateProfile({ profile, fetchProfile }) {
     bio: profile.bio,
     image: profile.image
   });
+
+  console.log(formDataProfile)
   
-  console.log('form: ', formDataProfile)
-  
-  const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
-
+  
+  console.log(profile.name)
   const handleProfileChange = (e) => {
     const { name, value } = e.target;
     setFormDataProfile({
@@ -36,21 +36,21 @@ function UpdateProfile({ profile, fetchProfile }) {
   };
 
   const handleUpdateProfile = () => {
-    fetch(url, {
-      method: 'PUT',
-      headers: {
-        Authorization: 'Bearer ' + Token,
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(formDataProfile),
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        console.log(data);
-        handleClose();
-        fetchProfile();
-      })
-      .catch((error) => console.error(error));
+    // fetch(url, {
+    //   method: 'PUT',
+    //   headers: {
+    //     Authorization: 'Bearer ' + Token,
+    //     'Content-Type': 'application/json',
+    //   },
+    //   body: JSON.stringify(formDataProfile),
+    // })
+    //   .then((response) => response.json())
+    //   .then((data) => {
+    //     console.log(data);
+    //     handleClose();
+    //     fetchProfile();
+    //   })
+    //   .catch((error) => console.error(error));
   };
 
   
