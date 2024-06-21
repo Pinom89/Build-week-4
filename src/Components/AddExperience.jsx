@@ -79,6 +79,15 @@ function AddExperience({ id, fetchExperiences }) {
           <Modal.Title>Inserisci nuova esperienza</Modal.Title>
         </Modal.Header>
         <Modal.Body>
+        <Form.Group className="mb-3">
+              <Form.Label>Azienda</Form.Label>
+              <Form.Control
+                name="company"
+                type="text"
+                placeholder="Inserisci azienda..."
+                onChange={handleCommentChange}
+              />
+            </Form.Group>
           <Form>
             {/* Campi del form per i dettagli dell'esperienza */}
             <Form.Group className="mb-3">
@@ -91,9 +100,42 @@ function AddExperience({ id, fetchExperiences }) {
                 onChange={handleCommentChange}
               />
             </Form.Group>
-
-            {/* Altri campi del form... */}
-
+            <Form.Group className="mb-3">
+              <Form.Label>Data inizio</Form.Label>
+              <Form.Control
+                name="startDate"
+                type="date"
+                placeholder="Data inizio"
+                onChange={handleCommentChange}
+              />
+            </Form.Group>
+            <Form.Group className="mb-3">
+              <Form.Label>Data fine</Form.Label>
+              <Form.Control
+                name="endDate"
+                type="date"
+                placeholder="Data fine"
+                onChange={handleCommentChange}
+              />
+            </Form.Group>
+            <Form.Group className="mb-3">
+              <Form.Label>Descrizione</Form.Label>
+              <Form.Control
+                name="description"
+                type="text"
+                placeholder="Descrivi la tua esperienza..."
+                onChange={handleCommentChange}
+              />
+            </Form.Group>
+            <Form.Group className="mb-3">
+              <Form.Label>Area</Form.Label>
+              <Form.Control
+                name="area"
+                type="text"
+                placeholder="Inserisci zona..."
+                onChange={handleCommentChange}
+              />
+            </Form.Group>
           </Form>
         </Modal.Body>
         <Modal.Footer>

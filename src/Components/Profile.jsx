@@ -11,10 +11,10 @@ import Resources from './infoProfile/Resources';
 import Activity from './infoProfile/Activity';
 import Experiences from './infoProfile/Experiences';
 import Skills from './infoProfile/Skills';
-// Importa useNavigate da react-router-dom
-import { useNavigate } from 'react-router-dom';
+
 // Importa il componente UpdateProfile
 import UpdateProfile from './UpdateProfile';
+
 
 function Profile() {
   // Definisce l'utente come "me" per il proprio profilo
