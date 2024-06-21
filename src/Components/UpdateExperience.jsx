@@ -1,14 +1,21 @@
+// Importa le funzioni useEffect e useState da React
 import { useEffect, useState } from "react";
+// Importa i componenti Form e Modal da react-bootstrap
 import { Form, Modal } from "react-bootstrap";
+// Importa la funzione format da date-fns per la formattazione delle date
 import { format } from 'date-fns';
 
 function UpdateExperience({ id, idExp, experience, fetchExperiences }) {
+  // Stampa l'esperienza attuale nella console
   console.log('La mia esperienza: ', experience);
 
+  // Recupera il token di autorizzazione dalle variabili d'ambiente
   const Token = process.env.TOKEN;
+  // URL dell'API per aggiornare l'esperienza
   const url = `https://striveschool-api.herokuapp.com/api/profile/${id}/experiences/${idExp}`;
 
-  const [show, setShow] = useState(false);
+  // Definizione degli stati locali
+  const [show, setShow] = useState(false); // Stato per controllare la visualizzazione del modal
   const [formDataExperience, setFormDataExperience] = useState({ 
     role: '',
     company: '',
@@ -18,6 +25,7 @@ function UpdateExperience({ id, idExp, experience, fetchExperiences }) {
     area: ''
   });
 
+  // Effettua il popolamento dei dati del modulo quando l'esperienza cambia
   useEffect(() => {
     if (experience) {
       setFormDataExperience({
@@ -31,9 +39,12 @@ function UpdateExperience({ id, idExp, experience, fetchExperiences }) {
     }
   }, [experience]);
 
+  // Funzione per chiudere il modal
   const handleClose = () => setShow(false);
+  // Funzione per aprire il modal
   const handleShow = () => setShow(true);
 
+  // Gestisce i cambiamenti nei campi del modulo
   const handleExperienceChange = (e) => {
     const { name, value } = e.target;
     setFormDataExperience({
@@ -42,6 +53,7 @@ function UpdateExperience({ id, idExp, experience, fetchExperiences }) {
     });
   };
 
+  // Gestisce l'aggiornamento dell'esperienza inviando i dati al server
   const handleUpdateExperience = () => {
     fetch(url, {
       method: 'PUT',
@@ -54,14 +66,15 @@ function UpdateExperience({ id, idExp, experience, fetchExperiences }) {
       .then((response) => response.json())
       .then((data) => {
         console.log(data);
-        handleClose();
-        fetchExperiences();
+        handleClose(); // Chiude il modal
+        fetchExperiences(); // Ricarica le esperienze
       })
       .catch((error) => console.error(error));
   };
 
   return (
     <>
+      {/* Bottone per aprire il modal */}
       <button 
         variant='primary'
         className='btn__altro mx-3 mt-3'
@@ -70,12 +83,14 @@ function UpdateExperience({ id, idExp, experience, fetchExperiences }) {
         Modifica
       </button>
 
+      {/* Modal per aggiornare l'esperienza */}
       <Modal size='lg' show={show} onHide={handleClose}>
         <Modal.Header closeButton>
           <Modal.Title>Aggiorna Esperienza</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <Form>
+            {/* Campo Ruolo */}
             <Form.Group className='mb-3'>
               <Form.Label>Ruolo</Form.Label>
               <Form.Control
@@ -86,6 +101,7 @@ function UpdateExperience({ id, idExp, experience, fetchExperiences }) {
                 autoFocus
               />
             </Form.Group>
+            {/* Campo Azienda */}
             <Form.Group className='mb-3'>
               <Form.Label>Azienda</Form.Label>
               <Form.Control
@@ -95,6 +111,7 @@ function UpdateExperience({ id, idExp, experience, fetchExperiences }) {
                 onChange={handleExperienceChange}
               />
             </Form.Group>
+            {/* Campo Data inizio */}
             <Form.Group className='mb-3'>
               <Form.Label>Data inizio</Form.Label>
               <Form.Control
@@ -104,6 +121,7 @@ function UpdateExperience({ id, idExp, experience, fetchExperiences }) {
                 onChange={handleExperienceChange}
               />
             </Form.Group>
+            {/* Campo Data fine */}
             <Form.Group className='mb-3'>
               <Form.Label>Data fine</Form.Label>
               <Form.Control
@@ -113,6 +131,7 @@ function UpdateExperience({ id, idExp, experience, fetchExperiences }) {
                 onChange={handleExperienceChange}
               />
             </Form.Group>
+            {/* Campo Descrizione */}
             <Form.Group className='mb-3'>
               <Form.Label>Descrizione</Form.Label>
               <Form.Control
@@ -122,6 +141,7 @@ function UpdateExperience({ id, idExp, experience, fetchExperiences }) {
                 onChange={handleExperienceChange}
               />
             </Form.Group>
+            {/* Campo Luogo */}
             <Form.Group className='mb-3'>
               <Form.Label>Luogo</Form.Label>
               <Form.Control
@@ -134,6 +154,7 @@ function UpdateExperience({ id, idExp, experience, fetchExperiences }) {
           </Form>
         </Modal.Body>
         <Modal.Footer>
+          {/* Bottone per chiudere il modal */}
           <button 
             variant='secondary'
             className='btn__altro'
@@ -141,6 +162,7 @@ function UpdateExperience({ id, idExp, experience, fetchExperiences }) {
           >
             Chiudi
           </button>
+          {/* Bottone per aggiornare l'esperienza */}
           <button
             variant='outline-primary'
             className='add__btn'

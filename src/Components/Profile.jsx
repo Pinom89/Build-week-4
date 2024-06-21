@@ -1,19 +1,23 @@
-// Import style css personalizzato
+// Importa lo stile CSS personalizzato
 import '../style/Profile.css';
 
 import React, { useEffect, useState } from 'react';
+// Importa i componenti necessari da react-bootstrap
 import { Alert, Col, Container, Row, Spinner, Button, ProgressBar } from 'react-bootstrap';
+// Importa i componenti per le varie sezioni del profilo utente
 import Advised from './infoProfile/Advised';
 import Analyses from './infoProfile/Analyses';
 import Resources from './infoProfile/Resources';
 import Activity from './infoProfile/Activity';
 import Experiences from './infoProfile/Experiences';
 import Skills from './infoProfile/Skills';
+// Importa useNavigate da react-router-dom
 import { useNavigate } from 'react-router-dom';
+// Importa il componente UpdateProfile
 import UpdateProfile from './UpdateProfile';
 
 function Profile() {
-
+  // Definisce l'utente come "me" per il proprio profilo
   const login = 'me';
 
   // URL dell'API per la lettura dei profili
@@ -27,7 +31,7 @@ function Profile() {
   const [isEnableSpinner, setIsEnableSpinner] = useState(false);
   const [isError, setIsError] = useState(false);
 
-
+  // Funzione per recuperare il profilo
   const fetchProfile = () => {
     setIsEnableSpinner(true);
     fetch(url + login, {
@@ -37,8 +41,6 @@ function Profile() {
     })
     .then((response) => response.json())
     .then((data) => {
-      
-      
       setProfile(data);
       setIsError(false);
     })
@@ -48,8 +50,8 @@ function Profile() {
     })
     .finally(() => setIsEnableSpinner(false)); 
   }
-  
 
+  // Effettua il fetch del profilo quando il componente è montato
   useEffect(() => {
     fetchProfile();
   }, []);
@@ -58,20 +60,25 @@ function Profile() {
   
   return ( 
     <>
+      {/* Mostra lo spinner di caricamento se isEnableSpinner è true */}
       {isEnableSpinner && <div className='text-center mt-5'><Spinner animation='grow' /></div>}
+      {/* Mostra un messaggio di errore se isError è true */}
       {isError && <div className='text-center mt-5'><Alert variant='danger'>Error loading...</Alert></div>}
      
       <Container className='pb-2 border-0 content__card content__profile'>
+        {/* Sezione background del profilo */}
         <Row className='profile__bg'>
           <img
             src='https://media.licdn.com/dms/image/C4D16AQH3Fs7tJvTAbg/profile-displaybackgroundimage-shrink_350_1400/0/1625442218069?e=1724284800&v=beta&t=nl44PVgE69kZ53-JtB_5NDes4bVAvNJe84KSTVN8B3o'
-            alt='Image backgroug profile'
+            alt='Image background profile'
           />
         </Row>
+        {/* Sezione immagine del profilo */}
         <Row className='profile__image'>
           <img className='image__user' src={profile.image} alt={profile.name} />
         </Row>
         <div className='d-flex justify-content-end '>
+          {/* Componente per aggiornare il profilo */}
           <UpdateProfile profile={profile} fetchProfile={fetchProfile} />
           {/* <button className='upgrade__profile p-0'><i className='fa-solid fa-pen'></i></button> */}
         </div>
@@ -146,22 +153,22 @@ function Profile() {
         </Row>
       </Container>
 
-      {/* Consigliato per te */}
+      {/* Sezione "Consigliato per te" */}
       <Advised />
       
-      {/* Analisi */}
+      {/* Sezione "Analisi" */}
       <Analyses />
 
-      {/* Risorse */}
+      {/* Sezione "Risorse" */}
       <Resources />
       
-      {/* Attività */}
+      {/* Sezione "Attività" */}
       <Activity login={login} />
 
-      {/* Esperienze */}
+      {/* Sezione "Esperienze" */}
       <Experiences id={profile._id} login={login} />
 
-      {/* Competenze */}
+      {/* Sezione "Competenze" */}
       <Skills login={login} />
     </> 
   );

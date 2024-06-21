@@ -1,15 +1,20 @@
 import { Col, Container, Row } from 'react-bootstrap';
 
+// Componente per visualizzare le analisi del profilo utente
 function Analyses() {
   return (
     <>
+      {/* Contenitore principale per la sezione delle analisi */}
       <Container className='content__analisi content__info__profile p-4'>
         <Row className='user__detail'>
           <Col>
+            {/* Intestazione della sezione analisi */}
             <h5 className='name mb-0'>Analisi</h5>
+            {/* Indicazione di visibilità privata */}
             <p className='my-0 occupation text-muted'> <i className='fa-solid fa-eye'></i>Solo per te</p>
             <Container>
               <Row>
+                {/* Colonna per le visualizzazioni del profilo */}
                 <Col className='mt-2'>
                   <div className='d-flex gap-2'>
                     <i className='fa-solid fa-user-group'></i>
@@ -19,6 +24,7 @@ function Analyses() {
                     </div>
                   </div>
                 </Col>
+                {/* Colonna per le impressioni dei post */}
                 <Col>
                   <div className='d-flex gap-2'>
                     <i className='fa-solid fa-chart-column'></i>
@@ -34,6 +40,7 @@ function Analyses() {
           </Col>
         </Row>
       </Container>
+      {/* Link per mostrare tutte le analisi */}
       <div className='link__analisi'>
         <p className='text-center'>Mostra tutte le analisi <i className='fa-solid fa-arrow-right'></i></p>
       </div>

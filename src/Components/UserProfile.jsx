@@ -1,9 +1,12 @@
-// Import style css personalizzato
+// Importa lo stile CSS personalizzato
 import '../style/Profile.css';
-import { useParams, useNavigate } from 'react-router-dom';
+// Importa la funzione useParams da react-router-dom per ottenere i parametri dell'URL
+import { useParams } from 'react-router-dom';
 
 import React, { useEffect, useState } from 'react';
-import { Alert, Col, Container, Row, Spinner, Button, ProgressBar } from 'react-bootstrap';
+// Importa i componenti necessari da react-bootstrap
+import { Alert, Col, Container, Row, Spinner } from 'react-bootstrap';
+// Importa i componenti per le varie sezioni del profilo utente
 import Advised from './infoProfile/Advised';
 import Analyses from './infoProfile/Analyses';
 import Resources from './infoProfile/Resources';
@@ -11,12 +14,10 @@ import Activity from './infoProfile/Activity';
 import Experiences from './infoProfile/Experiences';
 import Skills from './infoProfile/Skills';
 
-
 function UserProfile() {
-
+  // Utilizza useParams per ottenere i parametri dell'URL
   const params = useParams();
-  // console.log(params.user);
-
+  // console.log(params.user); // Debug: stampa i parametri dell'utente
 
   // URL dell'API per la lettura dei profili
   const url = 'https://striveschool-api.herokuapp.com/api/profile/';
@@ -38,7 +39,7 @@ function UserProfile() {
     })
     .then((response) => response.json())
     .then((data) => {
-      // console.log(data);
+      // console.log(data); // Debug: stampa i dati ricevuti
       setProfile(data);
       setIsError(false);
     })
@@ -51,20 +52,25 @@ function UserProfile() {
 
   return ( 
     <>
+      {/* Mostra lo spinner di caricamento se isEnableSpinner è true */}
       {isEnableSpinner && <div className='text-center mt-5'><Spinner animation='grow' /></div>}
+      {/* Mostra un messaggio di errore se isError è true */}
       {isError && <div className='text-center mt-5'><Alert variant='danger'>Error loading...</Alert></div>}
       
       <Container className='pb-2 border-0 content__card content__profile'>
+        {/* Sezione background del profilo */}
         <Row className='profile__bg'>
           <img
             src='https://img.freepik.com/free-photo/gradient-navy-blue-digital-grid-wallpaper_53876-104785.jpg?size=626&ext=jpg&ga=GA1.1.1788614524.1718755200&semt=ais_user'
             alt='Image background profile'
           />
         </Row>
+        {/* Sezione immagine del profilo */}
         <Row className='profile__image'>
           <img className='image__user' src={profile.image} alt={profile.name} />
         </Row>
         
+        {/* Dettagli dell'utente */}
         <Row className='user__detail mt-5'>
           <Col xs={12} md={8}>
             <h4 className='name mb-0 justify-content-start'>
@@ -120,22 +126,22 @@ function UserProfile() {
         </Row>
       </Container>
 
-      {/* Consigliato per te */}
+      {/* Sezione "Consigliato per te" */}
       <Advised />
       
-      {/* Analisi */}
+      {/* Sezione "Analisi" */}
       <Analyses />
 
-      {/* Risorse */}
+      {/* Sezione "Risorse" */}
       <Resources />
       
-      {/* Attività */}
+      {/* Sezione "Attività" */}
       <Activity />
 
-      {/* Esperienze */}
+      {/* Sezione "Esperienze" */}
       <Experiences id={profile._id} />
 
-      {/* Competenze */}
+      {/* Sezione "Competenze" */}
       <Skills />
     </> 
   );

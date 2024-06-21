@@ -1,23 +1,27 @@
+// Importa il file CSS per lo stile del componente
 import '../style/Profile.css'; 
 
 import React, { useState, useEffect } from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css'; // Importa i CSS di Bootstrap
+// Importa i CSS di Bootstrap
+import 'bootstrap/dist/css/bootstrap.min.css';
 import { Container, Row, Col, Spinner, Alert, Button } from 'react-bootstrap';
 import { useNavigate } from "react-router-dom";
 import ModalUsers from './ModalUsers';
 
 const AsideDx = () => {
-
+  // URL per l'API dei profili
   const url = 'https://striveschool-api.herokuapp.com/api/profile/';
 
+  // Stati per gestire i profili, lo spinner e gli errori
   const [profiles, setProfiles] = useState([]);
-  const Token = process.env.TOKEN; // Assicurati che la variabile d'ambiente sia correttamente configurata
+  const Token = process.env.TOKEN; // Token di autenticazione per l'API
   const [isEnableSpinner, setIsEnableSpinner] = useState(false);
   const [isError, setIsError] = useState(false);
   const navigate = useNavigate();
+  // Seleziona i primi 20 profili
   const tenprofiles = profiles.slice(0, 20);
 
-
+  // Effetto per caricare i profili all'avvio del componente
   useEffect(() => {
     const fetchProfiles = async () => {
       setIsEnableSpinner(true);
@@ -54,9 +58,12 @@ const AsideDx = () => {
       <div className="card-header">
         <h4 className="card-title">Altri profili simili</h4>
       </div>
+      {/* Mostra lo spinner durante il caricamento */}
       {isEnableSpinner && <div className='text-center mt-1'><Spinner animation='grow' /></div>}
+      {/* Mostra un messaggio di errore se il caricamento fallisce */}
       {isError && <div className='text-center mt-1'><Alert variant='danger'>Error loading...</Alert></div>}
       <div className="list-group list-group-flush p-4">
+        {/* Mappa i profili se ce ne sono, altrimenti mostra un messaggio */}
         {tenprofiles.length > 0 ? (
           tenprofiles.map((profile) => (
             <Container onClick={() => navigate(`/profiles/${profile._id}`)} key={profile._id} className='select__user'>
@@ -84,6 +91,7 @@ const AsideDx = () => {
         )}
       </div>
       <div className="card-footer">
+          {/* Componente per mostrare tutti i profili in un modal */}
           <ModalUsers profiles={profiles} />
       </div>
     </section>

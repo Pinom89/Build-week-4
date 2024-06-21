@@ -1,13 +1,19 @@
-import { Form, Modal, Button } from "react-bootstrap";
+// Importa i componenti Form e Modal da react-bootstrap
+import { Form, Modal } from "react-bootstrap";
+// Importa le funzioni useState e useEffect da React
 import { useState, useEffect } from 'react';
 
 function UpdateProfile({ profile, fetchProfile }) {
+  // Stampa il profilo attuale nella console
   console.log('Il mio profilo: ', profile);
 
+  // Recupera il token di autorizzazione dalle variabili d'ambiente
   const Token = process.env.TOKEN;
+  // URL dell'API per aggiornare il profilo
   const url = 'https://striveschool-api.herokuapp.com/api/profile/';
 
-  const [show, setShow] = useState(false);
+  // Definizione degli stati locali
+  const [show, setShow] = useState(false); // Stato per controllare la visualizzazione del modal
   const [formDataProfile, setFormDataProfile] = useState({ 
     name: '',
     surname: '',
@@ -19,6 +25,7 @@ function UpdateProfile({ profile, fetchProfile }) {
     image: ''
   });
 
+  // Effettua il popolamento dei dati del modulo quando il profilo cambia
   useEffect(() => {
     if (profile) {
       setFormDataProfile({
@@ -34,9 +41,12 @@ function UpdateProfile({ profile, fetchProfile }) {
     }
   }, [profile]);
 
+  // Funzione per chiudere il modal
   const handleClose = () => setShow(false);
+  // Funzione per aprire il modal
   const handleShow = () => setShow(true);
 
+  // Gestisce i cambiamenti nei campi del modulo
   const handleProfileChange = (e) => {
     const { name, value } = e.target;
     setFormDataProfile({
@@ -45,6 +55,7 @@ function UpdateProfile({ profile, fetchProfile }) {
     });
   };
 
+  // Gestisce l'aggiornamento del profilo inviando i dati al server
   const handleUpdateProfile = () => {
     fetch(url, {
       method: 'PUT',
@@ -57,14 +68,15 @@ function UpdateProfile({ profile, fetchProfile }) {
       .then((response) => response.json())
       .then((data) => {
         console.log(data);
-        handleClose();
-        fetchProfile();
+        handleClose(); // Chiude il modal
+        fetchProfile(); // Ricarica il profilo
       })
       .catch((error) => console.error(error));
   };
 
   return (
     <>
+      {/* Bottone per aprire il modal */}
       <button 
         variant='primary'
         className='upgrade__profile p-0'
@@ -73,12 +85,14 @@ function UpdateProfile({ profile, fetchProfile }) {
         <i className='fa-solid fa-pen'></i>
       </button>
 
+      {/* Modal per aggiornare il profilo */}
       <Modal size='lg' show={show} onHide={handleClose}>
         <Modal.Header closeButton>
           <Modal.Title>Aggiorna Profilo Utente</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <Form>
+            {/* Campo Nome */}
             <Form.Group className='mb-3'>
               <Form.Label>Nome</Form.Label>
               <Form.Control
@@ -89,6 +103,7 @@ function UpdateProfile({ profile, fetchProfile }) {
                 autoFocus
               />
             </Form.Group>
+            {/* Campo Cognome */}
             <Form.Group className='mb-3'>
               <Form.Label>Cognome</Form.Label>
               <Form.Control
@@ -98,6 +113,7 @@ function UpdateProfile({ profile, fetchProfile }) {
                 onChange={handleProfileChange}
               />
             </Form.Group>
+            {/* Campo Email */}
             <Form.Group className='mb-3'>
               <Form.Label>Email</Form.Label>
               <Form.Control
@@ -107,6 +123,7 @@ function UpdateProfile({ profile, fetchProfile }) {
                 onChange={handleProfileChange}
               />
             </Form.Group>
+            {/* Campo Username */}
             <Form.Group className='mb-3'>
               <Form.Label>Username</Form.Label>
               <Form.Control
@@ -116,6 +133,7 @@ function UpdateProfile({ profile, fetchProfile }) {
                 onChange={handleProfileChange}
               />
             </Form.Group>
+            {/* Campo Luogo */}
             <Form.Group className='mb-3'>
               <Form.Label>Luogo</Form.Label>
               <Form.Control
@@ -125,6 +143,7 @@ function UpdateProfile({ profile, fetchProfile }) {
                 onChange={handleProfileChange}
               />
             </Form.Group>
+            {/* Campo Titolo */}
             <Form.Group className='mb-3'>
               <Form.Label>Titolo</Form.Label>
               <Form.Control
@@ -134,6 +153,7 @@ function UpdateProfile({ profile, fetchProfile }) {
                 onChange={handleProfileChange}
               />
             </Form.Group>
+            {/* Campo Biografia */}
             <Form.Group className='mb-3'>
               <Form.Label>Biografia</Form.Label>
               <Form.Control
@@ -143,6 +163,7 @@ function UpdateProfile({ profile, fetchProfile }) {
                 onChange={handleProfileChange}
               />
             </Form.Group>
+            {/* Campo Immagine del profilo */}
             <Form.Group className='mb-3'>
               <Form.Label>Immagine del profilo</Form.Label>
               <Form.Control
@@ -155,6 +176,7 @@ function UpdateProfile({ profile, fetchProfile }) {
           </Form>
         </Modal.Body>
         <Modal.Footer>
+          {/* Bottone per chiudere il modal */}
           <button 
             variant='secondary'
             className='btn__altro'
@@ -162,6 +184,7 @@ function UpdateProfile({ profile, fetchProfile }) {
           >
             Chiudi
           </button>
+          {/* Bottone per aggiornare il profilo */}
           <button
             variant='outline-primary'
             className='add__btn'
