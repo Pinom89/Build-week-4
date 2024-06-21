@@ -28,7 +28,7 @@ function Profile() {
   const [isError, setIsError] = useState(false);
 
 
-  useEffect(() => {
+  const fetchProfile = () => {
     setIsEnableSpinner(true);
     fetch(url + login, {
       headers: {
@@ -47,7 +47,12 @@ function Profile() {
       setIsError(true);
     })
     .finally(() => setIsEnableSpinner(false)); 
-  }, [])
+  }
+  
+
+  useEffect(() => {
+    fetchProfile();
+  }, []);
 
   console.log(profile);
   
@@ -67,7 +72,7 @@ function Profile() {
           <img className='image__user' src={profile.image} alt={profile.name} />
         </Row>
         <div className='d-flex justify-content-end '>
-          <UpdateProfile />
+          <UpdateProfile profile={profile} fetchProfile={fetchProfile} />
           {/* <button className='upgrade__profile p-0'><i className='fa-solid fa-pen'></i></button> */}
         </div>
         <Row className='user__detail'>
