@@ -1,32 +1,42 @@
-import { Form, Modal } from "react-bootstrap";
-import { useState } from 'react';
+import { Form, Modal, Button } from "react-bootstrap";
+import { useState, useEffect } from 'react';
 
 function UpdateProfile({ profile, fetchProfile }) {
-
   console.log('Il mio profilo: ', profile);
-  
+
   const Token = process.env.TOKEN;
   const url = 'https://striveschool-api.herokuapp.com/api/profile/';
-  
+
   const [show, setShow] = useState(false);
-  
   const [formDataProfile, setFormDataProfile] = useState({ 
-    name: profile.name,
-    surname: profile.surname,
-    email: profile.email,
-    username: profile.username,
-    area: profile.area,
-    title: profile.title,
-    bio: profile.bio,
-    image: profile.image
+    name: '',
+    surname: '',
+    email: '',
+    username: '',
+    area: '',
+    title: '',
+    bio: '',
+    image: ''
   });
 
-  console.log(formDataProfile)
-  
+  useEffect(() => {
+    if (profile) {
+      setFormDataProfile({
+        name: profile.name,
+        surname: profile.surname,
+        email: profile.email,
+        username: profile.username,
+        area: profile.area,
+        title: profile.title,
+        bio: profile.bio,
+        image: profile.image
+      });
+    }
+  }, [profile]);
+
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
-  
-  console.log(profile.name)
+
   const handleProfileChange = (e) => {
     const { name, value } = e.target;
     setFormDataProfile({
@@ -36,24 +46,23 @@ function UpdateProfile({ profile, fetchProfile }) {
   };
 
   const handleUpdateProfile = () => {
-    // fetch(url, {
-    //   method: 'PUT',
-    //   headers: {
-    //     Authorization: 'Bearer ' + Token,
-    //     'Content-Type': 'application/json',
-    //   },
-    //   body: JSON.stringify(formDataProfile),
-    // })
-    //   .then((response) => response.json())
-    //   .then((data) => {
-    //     console.log(data);
-    //     handleClose();
-    //     fetchProfile();
-    //   })
-    //   .catch((error) => console.error(error));
+    fetch(url, {
+      method: 'PUT',
+      headers: {
+        Authorization: 'Bearer ' + Token,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(formDataProfile),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+        handleClose();
+        fetchProfile();
+      })
+      .catch((error) => console.error(error));
   };
 
-  
   return (
     <>
       <button 
@@ -74,7 +83,7 @@ function UpdateProfile({ profile, fetchProfile }) {
               <Form.Label>Nome</Form.Label>
               <Form.Control
                 type='text'
-                name='name'
+                name='nome'
                 value={formDataProfile.name}
                 onChange={handleProfileChange}
                 autoFocus
@@ -143,7 +152,6 @@ function UpdateProfile({ profile, fetchProfile }) {
                 onChange={handleProfileChange}
               />
             </Form.Group>
-           
           </Form>
         </Modal.Body>
         <Modal.Footer>
@@ -154,7 +162,7 @@ function UpdateProfile({ profile, fetchProfile }) {
           >
             Chiudi
           </button>
-          <button 
+          <button
             variant='outline-primary'
             className='add__btn'
             onClick={handleUpdateProfile}
@@ -165,6 +173,6 @@ function UpdateProfile({ profile, fetchProfile }) {
       </Modal>
     </>
   );
-};
+}
 
 export default UpdateProfile;
