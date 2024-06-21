@@ -83,7 +83,7 @@ function UpdateProfile({ profile, fetchProfile }) {
               <Form.Label>Nome</Form.Label>
               <Form.Control
                 type='text'
-                name='nome'
+                name='name'
                 value={formDataProfile.name}
                 onChange={handleProfileChange}
                 autoFocus
